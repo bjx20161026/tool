@@ -9,8 +9,32 @@
 		<jackson.version>1.9.10</jackson.version>
 		<jdk.version>1.6</jdk.version>
 	</properties>
+		<repositories>
+		<repository>
+			<id>hw</id>
+			<name>eastcom snapshots Repository</name>
+			<url>http://23.247.25.117:8081/nexus/content/repositories/snapshots</url>
+		</repository>
+		<repository>
+			<id>hw-3dr</id>
+			<name>hw-3dr</name>
+			<url>http://23.247.25.117:8081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</repositories>
 	
 	<dependencies>
+			<dependency>
+			<groupId>org.syslog4j</groupId>
+			<artifactId>syslog4j</artifactId>
+			<version>0.9.46</version>
+			<classifier>bin</classifier>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.javacsv/javacsv -->
+<dependency>
+    <groupId>net.sourceforge.javacsv</groupId>
+    <artifactId>javacsv</artifactId>
+    <version>2.0</version>
+</dependency>
 	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 <dependency>
     <groupId>commons-io</groupId>
