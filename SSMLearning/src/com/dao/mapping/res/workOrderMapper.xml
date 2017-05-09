@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapping.res.workOrderMapper">
+  <resultMap id="BaseResultMap" type="com.dao.mapping.workOrder">
+    <id column="WORKJOB_ID" jdbcType="VARCHAR" property="WORKJOB_ID" />
+    <result column="TITLE" jdbcType="VARCHAR" property="TITLE" />
+    <result column="WORKER" jdbcType="VARCHAR" property="WORKER" />
+    <result column="DEPARTMENT" jdbcType="VARCHAR" property="DEPARTMENT" />
+    <result column="SEND_TIME" jdbcType="DATE" property="SEND_TIME" />
+    <result column="HANDLE_TIME" jdbcType="DATE" property="HANDLE_TIME" />
+    <result column="HOTSPOTNAME" jdbcType="VARCHAR" property="HOTSPOTNAME" />
+    <result column="SHIELD_START" jdbcType="DATE" property="SHIELD_START" />
+    <result column="SHIELD_END" jdbcType="DATE" property="SHIELD_END" />
+    <result column="LOCATION" jdbcType="VARCHAR" property="LOCATION" />
+    <result column="AREA" jdbcType="VARCHAR" property="AREA" />
+    <result column="FTP" jdbcType="VARCHAR" property="FTP" />
+    <result column="STATEMENT" jdbcType="VARCHAR" property="STATEMENT" />
+    <result column="ISSUCCED" jdbcType="DECIMAL" property="ISSUCCED" />
+    <result column="WORKJOB_TYPE" jdbcType="VARCHAR" property="WORKJOB_TYPE" />
+    <result column="NASID" jdbcType="VARCHAR" property="NASID" />
+    <result column="FINISHTIME" jdbcType="DATE" property="FINISHTIME" />
+    <result column="RECEIPT" jdbcType="DATE" property="RECEIPT" />
+    <result column="INCLUDE" jdbcType="VARCHAR" property="INCLUDE" />
+    <result column="OPERATETIME" jdbcType="DATE" property="OPERATETIME" />
+    <result column="LOCALFILE" jdbcType="VARCHAR" property="LOCALFILE" />
+    <result column="FAILED_REASON" jdbcType="VARCHAR" property="FAILED_REASON" />
+    <result column="ORDER_USER" jdbcType="VARCHAR" property="ORDER_USER" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.dao.mapping.workOrder">
+    <result column="XMLTEXT" jdbcType="CLOB" property="XMLTEXT" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    WORKJOB_ID, TITLE, WORKER, DEPARTMENT, SEND_TIME, HANDLE_TIME, HOTSPOTNAME, SHIELD_START, 
+    SHIELD_END, LOCATION, AREA, FTP, STATEMENT, ISSUCCED, WORKJOB_TYPE, NASID, FINISHTIME, 
+    RECEIPT, INCLUDE, OPERATETIME, LOCALFILE, FAILED_REASON, ORDER_USER
+  </sql>
+  <sql id="Blob_Column_List">
+    XMLTEXT
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.dao.mapping.workOrderExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from RES.WORK_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.dao.mapping.workOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from RES.WORK_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from RES.WORK_ORDER
+    where WORKJOB_ID = #{WORKJOB_ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from RES.WORK_ORDER
+    where WORKJOB_ID = #{WORKJOB_ID,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dao.mapping.workOrderExample">
+    delete from RES.WORK_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dao.mapping.workOrder">
+    insert into RES.WORK_ORDER (WORKJOB_ID, TITLE, WORKER, 
+      DEPARTMENT, SEND_TIME, HANDLE_TIME, 
+      HOTSPOTNAME, SHIELD_START, SHIELD_END, 
+      LOCATION, AREA, FTP, 
+      STATEMENT, ISSUCCED, WORKJOB_TYPE, 
+      NASID, FINISHTIME, RECEIPT, 
+      INCLUDE, OPERATETIME, LOCALFILE, 
+      FAILED_REASON, ORDER_USER, XMLTEXT
+      )
+    values (#{WORKJOB_ID,jdbcType=VARCHAR}, #{TITLE,jdbcType=VARCHAR}, #{WORKER,jdbcType=VARCHAR}, 
+      #{DEPARTMENT,jdbcType=VARCHAR}, #{SEND_TIME,jdbcType=DATE}, #{HANDLE_TIME,jdbcType=DATE}, 
+      #{HOTSPOTNAME,jdbcType=VARCHAR}, #{SHIELD_START,jdbcType=DATE}, #{SHIELD_END,jdbcType=DATE}, 
+      #{LOCATION,jdbcType=VARCHAR}, #{AREA,jdbcType=VARCHAR}, #{FTP,jdbcType=VARCHAR}, 
+      #{STATEMENT,jdbcType=VARCHAR}, #{ISSUCCED,jdbcType=DECIMAL}, #{WORKJOB_TYPE,jdbcType=VARCHAR}, 
+      #{NASID,jdbcType=VARCHAR}, #{FINISHTIME,jdbcType=DATE}, #{RECEIPT,jdbcType=DATE}, 
+      #{INCLUDE,jdbcType=VARCHAR}, #{OPERATETIME,jdbcType=DATE}, #{LOCALFILE,jdbcType=VARCHAR}, 
+      #{FAILED_REASON,jdbcType=VARCHAR}, #{ORDER_USER,jdbcType=VARCHAR}, #{XMLTEXT,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dao.mapping.workOrder">
+    insert into RES.WORK_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="WORKJOB_ID != null">
+        WORKJOB_ID,
+      </if>
+      <if test="TITLE != null">
+        TITLE,
+      </if>
+      <if test="WORKER != null">
+        WORKER,
+      </if>
+      <if test="DEPARTMENT != null">
+        DEPARTMENT,
+      </if>
+      <if test="SEND_TIME != null">
+        SEND_TIME,
+      </if>
+      <if test="HANDLE_TIME != null">
+        HANDLE_TIME,
+      </if>
+      <if test="HOTSPOTNAME != null">
+        HOTSPOTNAME,
+      </if>
+      <if test="SHIELD_START != null">
+        SHIELD_START,
+      </if>
+      <if test="SHIELD_END != null">
+        SHIELD_END,
+      </if>
+      <if test="LOCATION != null">
+        LOCATION,
+      </if>
+      <if test="AREA != null">
+        AREA,
+      </if>
+      <if test="FTP != null">
+        FTP,
+      </if>
+      <if test="STATEMENT != null">
+        STATEMENT,
+      </if>
+      <if test="ISSUCCED != null">
+        ISSUCCED,
+      </if>
+      <if test="WORKJOB_TYPE != null">
+        WORKJOB_TYPE,
+      </if>
+      <if test="NASID != null">
+        NASID,
+      </if>
+      <if test="FINISHTIME != null">
+        FINISHTIME,
+      </if>
+      <if test="RECEIPT != null">
+        RECEIPT,
+      </if>
+      <if test="INCLUDE != null">
+        INCLUDE,
+      </if>
+      <if test="OPERATETIME != null">
+        OPERATETIME,
+      </if>
+      <if test="LOCALFILE != null">
+        LOCALFILE,
+      </if>
+      <if test="FAILED_REASON != null">
+        FAILED_REASON,
+      </if>
+      <if test="ORDER_USER != null">
+        ORDER_USER,
+      </if>
+      <if test="XMLTEXT != null">
+        XMLTEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="WORKJOB_ID != null">
+        #{WORKJOB_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="TITLE != null">
+        #{TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="WORKER != null">
+        #{WORKER,jdbcType=VARCHAR},
+      </if>
+      <if test="DEPARTMENT != null">
+        #{DEPARTMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_TIME != null">
+        #{SEND_TIME,jdbcType=DATE},
+      </if>
+      <if test="HANDLE_TIME != null">
+        #{HANDLE_TIME,jdbcType=DATE},
+      </if>
+      <if test="HOTSPOTNAME != null">
+        #{HOTSPOTNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SHIELD_START != null">
+        #{SHIELD_START,jdbcType=DATE},
+      </if>
+      <if test="SHIELD_END != null">
+        #{SHIELD_END,jdbcType=DATE},
+      </if>
+      <if test="LOCATION != null">
+        #{LOCATION,jdbcType=VARCHAR},
+      </if>
+      <if test="AREA != null">
+        #{AREA,jdbcType=VARCHAR},
+      </if>
+      <if test="FTP != null">
+        #{FTP,jdbcType=VARCHAR},
+      </if>
+      <if test="STATEMENT != null">
+        #{STATEMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUCCED != null">
+        #{ISSUCCED,jdbcType=DECIMAL},
+      </if>
+      <if test="WORKJOB_TYPE != null">
+        #{WORKJOB_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="NASID != null">
+        #{NASID,jdbcType=VARCHAR},
+      </if>
+      <if test="FINISHTIME != null">
+        #{FINISHTIME,jdbcType=DATE},
+      </if>
+      <if test="RECEIPT != null">
+        #{RECEIPT,jdbcType=DATE},
+      </if>
+      <if test="INCLUDE != null">
+        #{INCLUDE,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATETIME != null">
+        #{OPERATETIME,jdbcType=DATE},
+      </if>
+      <if test="LOCALFILE != null">
+        #{LOCALFILE,jdbcType=VARCHAR},
+      </if>
+      <if test="FAILED_REASON != null">
+        #{FAILED_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="ORDER_USER != null">
+        #{ORDER_USER,jdbcType=VARCHAR},
+      </if>
+      <if test="XMLTEXT != null">
+        #{XMLTEXT,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dao.mapping.workOrderExample" resultType="java.lang.Long">
+    select count(*) from RES.WORK_ORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update RES.WORK_ORDER
+    <set>
+      <if test="record.WORKJOB_ID != null">
+        WORKJOB_ID = #{record.WORKJOB_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.TITLE != null">
+        TITLE = #{record.TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.WORKER != null">
+        WORKER = #{record.WORKER,jdbcType=VARCHAR},
+      </if>
+      <if test="record.DEPARTMENT != null">
+        DEPARTMENT = #{record.DEPARTMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="record.SEND_TIME != null">
+        SEND_TIME = #{record.SEND_TIME,jdbcType=DATE},
+      </if>
+      <if test="record.HANDLE_TIME != null">
+        HANDLE_TIME = #{record.HANDLE_TIME,jdbcType=DATE},
+      </if>
+      <if test="record.HOTSPOTNAME != null">
+        HOTSPOTNAME = #{record.HOTSPOTNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="record.SHIELD_START != null">
+        SHIELD_START = #{record.SHIELD_START,jdbcType=DATE},
+      </if>
+      <if test="record.SHIELD_END != null">
+        SHIELD_END = #{record.SHIELD_END,jdbcType=DATE},
+      </if>
+      <if test="record.LOCATION != null">
+        LOCATION = #{record.LOCATION,jdbcType=VARCHAR},
+      </if>
+      <if test="record.AREA != null">
+        AREA = #{record.AREA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FTP != null">
+        FTP = #{record.FTP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.STATEMENT != null">
+        STATEMENT = #{record.STATEMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ISSUCCED != null">
+        ISSUCCED = #{record.ISSUCCED,jdbcType=DECIMAL},
+      </if>
+      <if test="record.WORKJOB_TYPE != null">
+        WORKJOB_TYPE = #{record.WORKJOB_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.NASID != null">
+        NASID = #{record.NASID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FINISHTIME != null">
+        FINISHTIME = #{record.FINISHTIME,jdbcType=DATE},
+      </if>
+      <if test="record.RECEIPT != null">
+        RECEIPT = #{record.RECEIPT,jdbcType=DATE},
+      </if>
+      <if test="record.INCLUDE != null">
+        INCLUDE = #{record.INCLUDE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.OPERATETIME != null">
+        OPERATETIME = #{record.OPERATETIME,jdbcType=DATE},
+      </if>
+      <if test="record.LOCALFILE != null">
+        LOCALFILE = #{record.LOCALFILE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FAILED_REASON != null">
+        FAILED_REASON = #{record.FAILED_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ORDER_USER != null">
+        ORDER_USER = #{record.ORDER_USER,jdbcType=VARCHAR},
+      </if>
+      <if test="record.XMLTEXT != null">
+        XMLTEXT = #{record.XMLTEXT,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update RES.WORK_ORDER
+    set WORKJOB_ID = #{record.WORKJOB_ID,jdbcType=VARCHAR},
+      TITLE = #{record.TITLE,jdbcType=VARCHAR},
+      WORKER = #{record.WORKER,jdbcType=VARCHAR},
+      DEPARTMENT = #{record.DEPARTMENT,jdbcType=VARCHAR},
+      SEND_TIME = #{record.SEND_TIME,jdbcType=DATE},
+      HANDLE_TIME = #{record.HANDLE_TIME,jdbcType=DATE},
+      HOTSPOTNAME = #{record.HOTSPOTNAME,jdbcType=VARCHAR},
+      SHIELD_START = #{record.SHIELD_START,jdbcType=DATE},
+      SHIELD_END = #{record.SHIELD_END,jdbcType=DATE},
+      LOCATION = #{record.LOCATION,jdbcType=VARCHAR},
+      AREA = #{record.AREA,jdbcType=VARCHAR},
+      FTP = #{record.FTP,jdbcType=VARCHAR},
+      STATEMENT = #{record.STATEMENT,jdbcType=VARCHAR},
+      ISSUCCED = #{record.ISSUCCED,jdbcType=DECIMAL},
+      WORKJOB_TYPE = #{record.WORKJOB_TYPE,jdbcType=VARCHAR},
+      NASID = #{record.NASID,jdbcType=VARCHAR},
+      FINISHTIME = #{record.FINISHTIME,jdbcType=DATE},
+      RECEIPT = #{record.RECEIPT,jdbcType=DATE},
+      INCLUDE = #{record.INCLUDE,jdbcType=VARCHAR},
+      OPERATETIME = #{record.OPERATETIME,jdbcType=DATE},
+      LOCALFILE = #{record.LOCALFILE,jdbcType=VARCHAR},
+      FAILED_REASON = #{record.FAILED_REASON,jdbcType=VARCHAR},
+      ORDER_USER = #{record.ORDER_USER,jdbcType=VARCHAR},
+      XMLTEXT = #{record.XMLTEXT,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update RES.WORK_ORDER
+    set WORKJOB_ID = #{record.WORKJOB_ID,jdbcType=VARCHAR},
+      TITLE = #{record.TITLE,jdbcType=VARCHAR},
+      WORKER = #{record.WORKER,jdbcType=VARCHAR},
+      DEPARTMENT = #{record.DEPARTMENT,jdbcType=VARCHAR},
+      SEND_TIME = #{record.SEND_TIME,jdbcType=DATE},
+      HANDLE_TIME = #{record.HANDLE_TIME,jdbcType=DATE},
+      HOTSPOTNAME = #{record.HOTSPOTNAME,jdbcType=VARCHAR},
+      SHIELD_START = #{record.SHIELD_START,jdbcType=DATE},
+      SHIELD_END = #{record.SHIELD_END,jdbcType=DATE},
+      LOCATION = #{record.LOCATION,jdbcType=VARCHAR},
+      AREA = #{record.AREA,jdbcType=VARCHAR},
+      FTP = #{record.FTP,jdbcType=VARCHAR},
+      STATEMENT = #{record.STATEMENT,jdbcType=VARCHAR},
+      ISSUCCED = #{record.ISSUCCED,jdbcType=DECIMAL},
+      WORKJOB_TYPE = #{record.WORKJOB_TYPE,jdbcType=VARCHAR},
+      NASID = #{record.NASID,jdbcType=VARCHAR},
+      FINISHTIME = #{record.FINISHTIME,jdbcType=DATE},
+      RECEIPT = #{record.RECEIPT,jdbcType=DATE},
+      INCLUDE = #{record.INCLUDE,jdbcType=VARCHAR},
+      OPERATETIME = #{record.OPERATETIME,jdbcType=DATE},
+      LOCALFILE = #{record.LOCALFILE,jdbcType=VARCHAR},
+      FAILED_REASON = #{record.FAILED_REASON,jdbcType=VARCHAR},
+      ORDER_USER = #{record.ORDER_USER,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dao.mapping.workOrder">
+    update RES.WORK_ORDER
+    <set>
+      <if test="TITLE != null">
+        TITLE = #{TITLE,jdbcType=VARCHAR},
+      </if>
+      <if test="WORKER != null">
+        WORKER = #{WORKER,jdbcType=VARCHAR},
+      </if>
+      <if test="DEPARTMENT != null">
+        DEPARTMENT = #{DEPARTMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="SEND_TIME != null">
+        SEND_TIME = #{SEND_TIME,jdbcType=DATE},
+      </if>
+      <if test="HANDLE_TIME != null">
+        HANDLE_TIME = #{HANDLE_TIME,jdbcType=DATE},
+      </if>
+      <if test="HOTSPOTNAME != null">
+        HOTSPOTNAME = #{HOTSPOTNAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SHIELD_START != null">
+        SHIELD_START = #{SHIELD_START,jdbcType=DATE},
+      </if>
+      <if test="SHIELD_END != null">
+        SHIELD_END = #{SHIELD_END,jdbcType=DATE},
+      </if>
+      <if test="LOCATION != null">
+        LOCATION = #{LOCATION,jdbcType=VARCHAR},
+      </if>
+      <if test="AREA != null">
+        AREA = #{AREA,jdbcType=VARCHAR},
+      </if>
+      <if test="FTP != null">
+        FTP = #{FTP,jdbcType=VARCHAR},
+      </if>
+      <if test="STATEMENT != null">
+        STATEMENT = #{STATEMENT,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUCCED != null">
+        ISSUCCED = #{ISSUCCED,jdbcType=DECIMAL},
+      </if>
+      <if test="WORKJOB_TYPE != null">
+        WORKJOB_TYPE = #{WORKJOB_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="NASID != null">
+        NASID = #{NASID,jdbcType=VARCHAR},
+      </if>
+      <if test="FINISHTIME != null">
+        FINISHTIME = #{FINISHTIME,jdbcType=DATE},
+      </if>
+      <if test="RECEIPT != null">
+        RECEIPT = #{RECEIPT,jdbcType=DATE},
+      </if>
+      <if test="INCLUDE != null">
+        INCLUDE = #{INCLUDE,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATETIME != null">
+        OPERATETIME = #{OPERATETIME,jdbcType=DATE},
+      </if>
+      <if test="LOCALFILE != null">
+        LOCALFILE = #{LOCALFILE,jdbcType=VARCHAR},
+      </if>
+      <if test="FAILED_REASON != null">
+        FAILED_REASON = #{FAILED_REASON,jdbcType=VARCHAR},
+      </if>
+      <if test="ORDER_USER != null">
+        ORDER_USER = #{ORDER_USER,jdbcType=VARCHAR},
+      </if>
+      <if test="XMLTEXT != null">
+        XMLTEXT = #{XMLTEXT,jdbcType=CLOB},
+      </if>
+    </set>
+    where WORKJOB_ID = #{WORKJOB_ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dao.mapping.workOrder">
+    update RES.WORK_ORDER
+    set TITLE = #{TITLE,jdbcType=VARCHAR},
+      WORKER = #{WORKER,jdbcType=VARCHAR},
+      DEPARTMENT = #{DEPARTMENT,jdbcType=VARCHAR},
+      SEND_TIME = #{SEND_TIME,jdbcType=DATE},
+      HANDLE_TIME = #{HANDLE_TIME,jdbcType=DATE},
+      HOTSPOTNAME = #{HOTSPOTNAME,jdbcType=VARCHAR},
+      SHIELD_START = #{SHIELD_START,jdbcType=DATE},
+      SHIELD_END = #{SHIELD_END,jdbcType=DATE},
+      LOCATION = #{LOCATION,jdbcType=VARCHAR},
+      AREA = #{AREA,jdbcType=VARCHAR},
+      FTP = #{FTP,jdbcType=VARCHAR},
+      STATEMENT = #{STATEMENT,jdbcType=VARCHAR},
+      ISSUCCED = #{ISSUCCED,jdbcType=DECIMAL},
+      WORKJOB_TYPE = #{WORKJOB_TYPE,jdbcType=VARCHAR},
+      NASID = #{NASID,jdbcType=VARCHAR},
+      FINISHTIME = #{FINISHTIME,jdbcType=DATE},
+      RECEIPT = #{RECEIPT,jdbcType=DATE},
+      INCLUDE = #{INCLUDE,jdbcType=VARCHAR},
+      OPERATETIME = #{OPERATETIME,jdbcType=DATE},
+      LOCALFILE = #{LOCALFILE,jdbcType=VARCHAR},
+      FAILED_REASON = #{FAILED_REASON,jdbcType=VARCHAR},
+      ORDER_USER = #{ORDER_USER,jdbcType=VARCHAR},
+      XMLTEXT = #{XMLTEXT,jdbcType=CLOB}
+    where WORKJOB_ID = #{WORKJOB_ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dao.mapping.workOrder">
+    update RES.WORK_ORDER
+    set TITLE = #{TITLE,jdbcType=VARCHAR},
+      WORKER = #{WORKER,jdbcType=VARCHAR},
+      DEPARTMENT = #{DEPARTMENT,jdbcType=VARCHAR},
+      SEND_TIME = #{SEND_TIME,jdbcType=DATE},
+      HANDLE_TIME = #{HANDLE_TIME,jdbcType=DATE},
+      HOTSPOTNAME = #{HOTSPOTNAME,jdbcType=VARCHAR},
+      SHIELD_START = #{SHIELD_START,jdbcType=DATE},
+      SHIELD_END = #{SHIELD_END,jdbcType=DATE},
+      LOCATION = #{LOCATION,jdbcType=VARCHAR},
+      AREA = #{AREA,jdbcType=VARCHAR},
+      FTP = #{FTP,jdbcType=VARCHAR},
+      STATEMENT = #{STATEMENT,jdbcType=VARCHAR},
+      ISSUCCED = #{ISSUCCED,jdbcType=DECIMAL},
+      WORKJOB_TYPE = #{WORKJOB_TYPE,jdbcType=VARCHAR},
+      NASID = #{NASID,jdbcType=VARCHAR},
+      FINISHTIME = #{FINISHTIME,jdbcType=DATE},
+      RECEIPT = #{RECEIPT,jdbcType=DATE},
+      INCLUDE = #{INCLUDE,jdbcType=VARCHAR},
+      OPERATETIME = #{OPERATETIME,jdbcType=DATE},
+      LOCALFILE = #{LOCALFILE,jdbcType=VARCHAR},
+      FAILED_REASON = #{FAILED_REASON,jdbcType=VARCHAR},
+      ORDER_USER = #{ORDER_USER,jdbcType=VARCHAR}
+    where WORKJOB_ID = #{WORKJOB_ID,jdbcType=VARCHAR}
+  </update>
+</mapper>
