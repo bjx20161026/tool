@@ -95,6 +95,10 @@
   <sql id="Blob_Column_List">
     XMLTEXT
   </sql>
+  <select id="selectComplexSql" resultMap="BaseResultMap">
+  select * from RES.WORK_ORDER
+  </select>
+  
   <select id="selectByExampleWithBLOBs" parameterType="com.dao.mapping.workOrderExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">

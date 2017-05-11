@@ -26,5 +26,4 @@ public class OperatorWorkOrderImpl implements OperatorWorkOrder{
 		WorkOrderMapper.selectByPrimaryKey("112");
 		return WorkOrderMapper.selectByExample(WorkOrderExample);
 	}
-
 }

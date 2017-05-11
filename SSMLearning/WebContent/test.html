@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="siteCtrl"> 
+<h1>{{response}}</h1>
+<ul>
+  <li ng-repeat="x in names">
+    {{ x.workjob_ID + ', ' + x.department }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('siteCtrl', function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: 'http://localhost:9180/SSMLearning/rest/workOrder/selectByExample'
+    }).then(function successCallback(response) {
+            $scope.names = response.data.sites;
+        }, function errorCallback(response) {
+		    $scope.response =response;
+			$scope.names = response.data.sites;
+    });
+  
+});
+</script>
+
+</body>
+</html>

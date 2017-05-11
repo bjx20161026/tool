@@ -19,6 +19,8 @@ public interface workOrderMapper {
     List<workOrder> selectByExampleWithBLOBs(workOrderExample example);
 
     List<workOrder> selectByExample(workOrderExample example);
+    
+    List<workOrder> selectComplexSql();
 
     workOrder selectByPrimaryKey(String WORKJOB_ID);
 

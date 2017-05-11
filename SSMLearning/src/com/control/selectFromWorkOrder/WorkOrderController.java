@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.dao.mapping.workOrder;
 import com.dao.mapping.res.workOrderMapper;
 import com.service.operatorWorkOrder.OperatorWorkOrder;
-import com.service.operatorWorkOrder.impl.OperatorWorkOrderImpl;
 
 @Controller
 @RequestMapping("/workOrder")
@@ -24,17 +23,26 @@ public class WorkOrderController {
 	OperatorWorkOrder operatorWorkOrder;
 	@RequestMapping(value="/test",method=RequestMethod.GET)
 	public @ResponseBody String Test(){
+		logger.info("test");
 		return "这是一个测试的首页，会不断地进行丰富";	
 	}
 	
 	@RequestMapping(value="/selectByPrimaryKey",method=RequestMethod.GET)
 	public @ResponseBody workOrder selectByPrimaryKey(){
+		logger.info("selectByPrimaryKey");
 		return WorkOrderMapper.selectByPrimaryKey("112");
 	}
 	
 	@RequestMapping(value="/selectByExample",method=RequestMethod.GET)
-	public @ResponseBody List<workOrder> selectByExample(){
+	public @ResponseBody List<workOrder> selectByExample() throws Exception{
+		logger.info("selectByExample");
 //		operatorWorkOrder = new OperatorWorkOrderImpl();
 		return operatorWorkOrder.selectByExample();
+	}
+	
+	@RequestMapping(value="/selectComplexSql",method=RequestMethod.GET)
+	public @ResponseBody List<workOrder> selectComplexSql(){
+		logger.info("selectComplexSql");
+		return WorkOrderMapper.selectComplexSql();
 	}
 }
