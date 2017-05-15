@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapping.ipmsdm.META_PI_CFG_ESB_SHAREMapper">
+  <resultMap id="BaseResultMap" type="com.dao.mapping.META_PI_CFG_ESB_SHARE">
+    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="SERVICE_CODE" />
+    <result column="TIME_TYPE" jdbcType="DECIMAL" property="TIME_TYPE" />
+    <result column="TIME_FILS" jdbcType="DECIMAL" property="TIME_FILS" />
+    <result column="TABLE_NAME" jdbcType="VARCHAR" property="TABLE_NAME" />
+    <result column="IS_COMPLETE" jdbcType="DECIMAL" property="IS_COMPLETE" />
+    <result column="IS_SHARED" jdbcType="DECIMAL" property="IS_SHARED" />
+    <result column="REC_VENDOR" jdbcType="VARCHAR" property="REC_VENDOR" />
+    <result column="DESCR" jdbcType="VARCHAR" property="DESCR" />
+    <result column="FTP_IP" jdbcType="VARCHAR" property="FTP_IP" />
+    <result column="FILE_PATTERN" jdbcType="VARCHAR" property="FILE_PATTERN" />
+    <result column="SERVICE_NAME" jdbcType="VARCHAR" property="SERVICE_NAME" />
+    <result column="IS_MONITOR" jdbcType="DECIMAL" property="IS_MONITOR" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    SERVICE_CODE, TIME_TYPE, TIME_FILS, TABLE_NAME, IS_COMPLETE, IS_SHARED, REC_VENDOR, 
+    DESCR, FTP_IP, FILE_PATTERN, SERVICE_NAME, IS_MONITOR
+  </sql>
+  <select id="selectByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IPMSDM.META_PI_CFG_ESB_SHARE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample">
+    delete from IPMSDM.META_PI_CFG_ESB_SHARE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHARE">
+    insert into IPMSDM.META_PI_CFG_ESB_SHARE (SERVICE_CODE, TIME_TYPE, TIME_FILS, 
+      TABLE_NAME, IS_COMPLETE, IS_SHARED, 
+      REC_VENDOR, DESCR, FTP_IP, 
+      FILE_PATTERN, SERVICE_NAME, IS_MONITOR
+      )
+    values (#{SERVICE_CODE,jdbcType=VARCHAR}, #{TIME_TYPE,jdbcType=DECIMAL}, #{TIME_FILS,jdbcType=DECIMAL}, 
+      #{TABLE_NAME,jdbcType=VARCHAR}, #{IS_COMPLETE,jdbcType=DECIMAL}, #{IS_SHARED,jdbcType=DECIMAL}, 
+      #{REC_VENDOR,jdbcType=VARCHAR}, #{DESCR,jdbcType=VARCHAR}, #{FTP_IP,jdbcType=VARCHAR}, 
+      #{FILE_PATTERN,jdbcType=VARCHAR}, #{SERVICE_NAME,jdbcType=VARCHAR}, #{IS_MONITOR,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHARE">
+    insert into IPMSDM.META_PI_CFG_ESB_SHARE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="SERVICE_CODE != null">
+        SERVICE_CODE,
+      </if>
+      <if test="TIME_TYPE != null">
+        TIME_TYPE,
+      </if>
+      <if test="TIME_FILS != null">
+        TIME_FILS,
+      </if>
+      <if test="TABLE_NAME != null">
+        TABLE_NAME,
+      </if>
+      <if test="IS_COMPLETE != null">
+        IS_COMPLETE,
+      </if>
+      <if test="IS_SHARED != null">
+        IS_SHARED,
+      </if>
+      <if test="REC_VENDOR != null">
+        REC_VENDOR,
+      </if>
+      <if test="DESCR != null">
+        DESCR,
+      </if>
+      <if test="FTP_IP != null">
+        FTP_IP,
+      </if>
+      <if test="FILE_PATTERN != null">
+        FILE_PATTERN,
+      </if>
+      <if test="SERVICE_NAME != null">
+        SERVICE_NAME,
+      </if>
+      <if test="IS_MONITOR != null">
+        IS_MONITOR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="SERVICE_CODE != null">
+        #{SERVICE_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="TIME_TYPE != null">
+        #{TIME_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="TIME_FILS != null">
+        #{TIME_FILS,jdbcType=DECIMAL},
+      </if>
+      <if test="TABLE_NAME != null">
+        #{TABLE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="IS_COMPLETE != null">
+        #{IS_COMPLETE,jdbcType=DECIMAL},
+      </if>
+      <if test="IS_SHARED != null">
+        #{IS_SHARED,jdbcType=DECIMAL},
+      </if>
+      <if test="REC_VENDOR != null">
+        #{REC_VENDOR,jdbcType=VARCHAR},
+      </if>
+      <if test="DESCR != null">
+        #{DESCR,jdbcType=VARCHAR},
+      </if>
+      <if test="FTP_IP != null">
+        #{FTP_IP,jdbcType=VARCHAR},
+      </if>
+      <if test="FILE_PATTERN != null">
+        #{FILE_PATTERN,jdbcType=VARCHAR},
+      </if>
+      <if test="SERVICE_NAME != null">
+        #{SERVICE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="IS_MONITOR != null">
+        #{IS_MONITOR,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample" resultType="java.lang.Long">
+    select count(*) from IPMSDM.META_PI_CFG_ESB_SHARE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IPMSDM.META_PI_CFG_ESB_SHARE
+    <set>
+      <if test="record.SERVICE_CODE != null">
+        SERVICE_CODE = #{record.SERVICE_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.TIME_TYPE != null">
+        TIME_TYPE = #{record.TIME_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TIME_FILS != null">
+        TIME_FILS = #{record.TIME_FILS,jdbcType=DECIMAL},
+      </if>
+      <if test="record.TABLE_NAME != null">
+        TABLE_NAME = #{record.TABLE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="record.IS_COMPLETE != null">
+        IS_COMPLETE = #{record.IS_COMPLETE,jdbcType=DECIMAL},
+      </if>
+      <if test="record.IS_SHARED != null">
+        IS_SHARED = #{record.IS_SHARED,jdbcType=DECIMAL},
+      </if>
+      <if test="record.REC_VENDOR != null">
+        REC_VENDOR = #{record.REC_VENDOR,jdbcType=VARCHAR},
+      </if>
+      <if test="record.DESCR != null">
+        DESCR = #{record.DESCR,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FTP_IP != null">
+        FTP_IP = #{record.FTP_IP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FILE_PATTERN != null">
+        FILE_PATTERN = #{record.FILE_PATTERN,jdbcType=VARCHAR},
+      </if>
+      <if test="record.SERVICE_NAME != null">
+        SERVICE_NAME = #{record.SERVICE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="record.IS_MONITOR != null">
+        IS_MONITOR = #{record.IS_MONITOR,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IPMSDM.META_PI_CFG_ESB_SHARE
+    set SERVICE_CODE = #{record.SERVICE_CODE,jdbcType=VARCHAR},
+      TIME_TYPE = #{record.TIME_TYPE,jdbcType=DECIMAL},
+      TIME_FILS = #{record.TIME_FILS,jdbcType=DECIMAL},
+      TABLE_NAME = #{record.TABLE_NAME,jdbcType=VARCHAR},
+      IS_COMPLETE = #{record.IS_COMPLETE,jdbcType=DECIMAL},
+      IS_SHARED = #{record.IS_SHARED,jdbcType=DECIMAL},
+      REC_VENDOR = #{record.REC_VENDOR,jdbcType=VARCHAR},
+      DESCR = #{record.DESCR,jdbcType=VARCHAR},
+      FTP_IP = #{record.FTP_IP,jdbcType=VARCHAR},
+      FILE_PATTERN = #{record.FILE_PATTERN,jdbcType=VARCHAR},
+      SERVICE_NAME = #{record.SERVICE_NAME,jdbcType=VARCHAR},
+      IS_MONITOR = #{record.IS_MONITOR,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
