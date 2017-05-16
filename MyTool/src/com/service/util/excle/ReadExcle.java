@@ -82,9 +82,8 @@ public class ReadExcle {
 				continue;
 			xssfRow = xssfSheet.getRow(0);
 			heads = new ArrayList<String>();
-			int i = 0;
 			try {
-				for (i = 0; (value = getValue(xssfRow.getCell(i))) != null; i++) {
+				for (int i = 0; (value = getValue(xssfRow.getCell(i))) != null; i++) {
 					heads.add(value);
 				}
 			} catch (NullPointerException e) {
@@ -97,6 +96,7 @@ public class ReadExcle {
 				if (xssfRow != null) {
 					map = new HashMap<String, String>();
 					for (int j = 0; j < heads.size(); j++) {
+						System.out.println("读入的内容："+heads.get(j)+"+"+getValue(xssfRow.getCell(j)));
 						map.put(heads.get(j), getValue(xssfRow.getCell(j)));
 					}
 					list.add(map);

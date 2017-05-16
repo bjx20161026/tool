@@ -22,6 +22,7 @@ public class EsbUploadImpl implements EsbUpload {
 	Properties pro;
 	@Autowired
 	dm_co_ba_cfg_task_mngMapper taskTableDao;
+
 	@Override
 	public String CreatUploadConfig(String path) throws IOException {
 		// TODO Auto-generated method stub
@@ -32,33 +33,34 @@ public class EsbUploadImpl implements EsbUpload {
 		InsertTaskTable(list);
 		return null;
 	}
-	
-	public int InsertTaskTable(List<Map<String,String>> list){
+
+	public int InsertTaskTable(List<Map<String, String>> list) {
 		dm_co_ba_cfg_task_mng taskTable = new dm_co_ba_cfg_task_mng();
 		map = list.get(1);
-		taskTable.setID("esb-"+map.get("name")==null?"":map.get("name"));
+		taskTable.setID("esb-" + map.get("name") == null ? "" : map.get("name"));
 		Map<String, String> maptimeType = timeTypeTransfer(map.get("timeType"));
 		taskTable.setTIMETYPE(maptimeType.get("timetype"));
 		taskTable.setTIMEINVOKEPOINT(maptimeType.get("timeinvokepoint"));
-		taskTable.setTIMEPOINT("timepoint");
-		taskTable.setENABLED((short)0);
-		taskTable.setPRIORITY((short)0);
-		taskTable.setSUBID("esb://esb-"+map.get("id"));
-		taskTable.setSERVER_IP(map.get("serverIp")==null?"10.221.18.29":map.get("serverIp"));
-		return taskTableDao.insert(taskTable);	
+		taskTable.setTIMEPOINT(maptimeType.get("timepoint"));
+		taskTable.setENABLED((short) 0);
+		taskTable.setPRIORITY((short) 0);
+		taskTable.setSUBID("esb://esb-" + map.get("id"));
+		taskTable.setSERVER_IP(map.get("serverIp") == null ? "10.221.18.29" : map.get("serverIp"));
+		return taskTableDao.insert(taskTable);
 	}
-	
-	public Map<String,String> timeTypeTransfer(String timeType){
-		pro = FileTools.getProperties("propertiesTest.properties");
-		Map<String, String> maptimeType = new HashMap<String,String>();
-		maptimeType.put("timetype", pro.getProperty("timetype."+timeType));
-		maptimeType.put("timeinvokepoint", pro.getProperty("timeinvokepoint."+timeType));
-		maptimeType.put("timepoint", pro.getProperty("timepoint."+timeType));
-		maptimeType.put("mtime", pro.getProperty("mtime."+timeType));
-		return map;
+
+	public Map<String, String> timeTypeTransfer(String timeType) {
+		pro = FileTools.getProperties("TimeType.properties");
+		Map<String, String> maptimeType = new HashMap<String, String>();
+		maptimeType.put("timetype", pro.getProperty("timetype." + timeType));
+		maptimeType.put("timeinvokepoint", pro.getProperty("timeinvokepoint." + timeType));
+		maptimeType.put("timepoint", pro.getProperty("timepoint." + timeType));
+		maptimeType.put("mtime", pro.getProperty("mtime." + timeType));
+		return maptimeType;
 	}
 
 	public String[] toStrings(String str) {
+		System.out.println(str);
 		String[] strs = str.split(",");
 		strs[0] = strs[0].substring(1).trim();
 		int length = strs.length;
@@ -70,13 +72,8 @@ public class EsbUploadImpl implements EsbUpload {
 	}
 
 	public static void main(String[] args) {
-		EsbUpload esbUpload = new EsbUploadImpl();
-		try {
-			esbUpload.CreatUploadConfig("F:/EsbUploadModel.xlsx");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		EsbUploadImpl esbUpload = new EsbUploadImpl();
+		Map<String, String> maptimeType = esbUpload.timeTypeTransfer("five");
+		System.out.println(maptimeType.get("timetype"));
 	}
-
 }

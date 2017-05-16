@@ -2,6 +2,7 @@ package com.service.util.common;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -27,9 +28,11 @@ public class FileTools {
 	
 	public static Properties getProperties(String path){
 		Properties pro = new Properties();
-		FileInputStream in;
+//		FileInputStream in;
+		FileTools fileTools = new FileTools();
+		InputStream in=fileTools.getClass().getClassLoader().getResourceAsStream(path);
 		try {
-			in = new FileInputStream("./config/"+path);
+//			in = new FileInputStream("./config/"+path);
 			pro.load(in);
 			in.close();
 		} catch (Exception e) {
