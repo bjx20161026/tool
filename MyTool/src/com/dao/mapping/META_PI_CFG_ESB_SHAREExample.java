@@ -235,63 +235,63 @@ public class META_PI_CFG_ESB_SHAREExample {
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSIsNull() {
-            addCriterion("TIME_FILS is null");
+        public Criteria andTIME_FILESIsNull() {
+            addCriterion("TIME_FILES is null");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSIsNotNull() {
-            addCriterion("TIME_FILS is not null");
+        public Criteria andTIME_FILESIsNotNull() {
+            addCriterion("TIME_FILES is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSEqualTo(BigDecimal value) {
-            addCriterion("TIME_FILS =", value, "TIME_FILS");
+        public Criteria andTIME_FILESEqualTo(BigDecimal value) {
+            addCriterion("TIME_FILES =", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSNotEqualTo(BigDecimal value) {
-            addCriterion("TIME_FILS <>", value, "TIME_FILS");
+        public Criteria andTIME_FILESNotEqualTo(BigDecimal value) {
+            addCriterion("TIME_FILES <>", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSGreaterThan(BigDecimal value) {
-            addCriterion("TIME_FILS >", value, "TIME_FILS");
+        public Criteria andTIME_FILESGreaterThan(BigDecimal value) {
+            addCriterion("TIME_FILES >", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("TIME_FILS >=", value, "TIME_FILS");
+        public Criteria andTIME_FILESGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("TIME_FILES >=", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSLessThan(BigDecimal value) {
-            addCriterion("TIME_FILS <", value, "TIME_FILS");
+        public Criteria andTIME_FILESLessThan(BigDecimal value) {
+            addCriterion("TIME_FILES <", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("TIME_FILS <=", value, "TIME_FILS");
+        public Criteria andTIME_FILESLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("TIME_FILES <=", value, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSIn(List<BigDecimal> values) {
-            addCriterion("TIME_FILS in", values, "TIME_FILS");
+        public Criteria andTIME_FILESIn(List<BigDecimal> values) {
+            addCriterion("TIME_FILES in", values, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSNotIn(List<BigDecimal> values) {
-            addCriterion("TIME_FILS not in", values, "TIME_FILS");
+        public Criteria andTIME_FILESNotIn(List<BigDecimal> values) {
+            addCriterion("TIME_FILES not in", values, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("TIME_FILS between", value1, value2, "TIME_FILS");
+        public Criteria andTIME_FILESBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TIME_FILES between", value1, value2, "TIME_FILES");
             return (Criteria) this;
         }
 
-        public Criteria andTIME_FILSNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("TIME_FILS not between", value1, value2, "TIME_FILS");
+        public Criteria andTIME_FILESNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TIME_FILES not between", value1, value2, "TIME_FILES");
             return (Criteria) this;
         }
 

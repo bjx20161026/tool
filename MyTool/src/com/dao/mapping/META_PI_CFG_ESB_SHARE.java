@@ -1,13 +1,12 @@
 package com.dao.mapping;
 
-import java.math.BigDecimal;
 
 public class META_PI_CFG_ESB_SHARE {
     private String SERVICE_CODE;
 
-    private BigDecimal TIME_TYPE;
+    private int TIME_TYPE;
 
-    private BigDecimal TIME_FILS;
+    private int TIME_FILES;
 
     private String TABLE_NAME;
 
@@ -35,20 +34,20 @@ public class META_PI_CFG_ESB_SHARE {
         this.SERVICE_CODE = SERVICE_CODE == null ? null : SERVICE_CODE.trim();
     }
 
-    public BigDecimal getTIME_TYPE() {
+    public int getTIME_TYPE() {
         return TIME_TYPE;
     }
 
-    public void setTIME_TYPE(BigDecimal TIME_TYPE) {
+    public void setTIME_TYPE(int TIME_TYPE) {
         this.TIME_TYPE = TIME_TYPE;
     }
 
-    public BigDecimal getTIME_FILS() {
-        return TIME_FILS;
+    public int getTIME_FILES() {
+        return TIME_FILES;
     }
 
-    public void setTIME_FILS(BigDecimal TIME_FILS) {
-        this.TIME_FILS = TIME_FILS;
+    public void setTIME_FILES(int TIME_FILES) {
+        this.TIME_FILES = TIME_FILES;
     }
 
     public String getTABLE_NAME() {

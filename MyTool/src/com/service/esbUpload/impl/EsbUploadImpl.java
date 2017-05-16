@@ -9,8 +9,10 @@ import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dao.mapping.META_PI_CFG_ESB_SHARE;
 import com.dao.mapping.dm_co_ba_cfg_task_mng;
 import com.dao.mapping.ipmsdm.dm_co_ba_cfg_task_mngMapper;
+import com.dao.mapping.ipmsds.META_PI_CFG_ESB_SHAREMapper;
 import com.service.esbUpload.EsbUpload;
 import com.service.util.common.FileTools;
 import com.service.util.excle.ReadExcle;
@@ -22,7 +24,8 @@ public class EsbUploadImpl implements EsbUpload {
 	Properties pro;
 	@Autowired
 	dm_co_ba_cfg_task_mngMapper taskTableDao;
-
+	@Autowired
+	META_PI_CFG_ESB_SHAREMapper shareTableDao;
 	@Override
 	public String CreatUploadConfig(String path) throws IOException {
 		// TODO Auto-generated method stub
@@ -30,8 +33,26 @@ public class EsbUploadImpl implements EsbUpload {
 		list = readExcle.readExcel(path);
 		@SuppressWarnings("unused")
 		String[] heads = toStrings(list.get(0).get("heads"));
-		InsertTaskTable(list);
-		return null;
+		int sc=InsertShareTable(list);
+		int tc=InsertTaskTable(list);
+		return "成功插入notice："+sc+" 条  ；成功插入task："+tc+" 条";
+	}
+	
+	public int InsertShareTable(List<Map<String, String>> list){
+		META_PI_CFG_ESB_SHARE shareTable = new META_PI_CFG_ESB_SHARE();
+		map = list.get(1);
+		shareTable.setSERVICE_CODE(map.get("id"));
+		Map<String, String> maptimeType = timeTypeTransfer(map.get("timeType"));
+		shareTable.setTIME_TYPE(Integer.parseInt(maptimeType.get("mtime")));
+		shareTable.setTIME_FILES(1);
+		shareTable.setTABLE_NAME(map.get("id").substring(8, map.get("id").indexOf(".", 10)));
+		shareTable.setIS_COMPLETE((short)1);
+		shareTable.setIS_SHARED((short)1);
+		shareTable.setFTP_IP(map.get("ftpIp")==null?"10.221.246.84":map.get("ftpIp"));
+		shareTable.setFILE_PATTERN(map.get("id").substring(8, map.get("id").indexOf(".", 10))+"_");
+		shareTable.setSERVICE_NAME(map.get("name") == null ? "" : map.get("name"));
+		shareTable.setIS_MONITOR((short)1);
+		return shareTableDao.insert(shareTable);
 	}
 
 	public int InsertTaskTable(List<Map<String, String>> list) {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.mapping.ipmsdm.META_PI_CFG_ESB_SHAREMapper">
+<mapper namespace="com.dao.mapping.ipmsds.META_PI_CFG_ESB_SHAREMapper">
   <resultMap id="BaseResultMap" type="com.dao.mapping.META_PI_CFG_ESB_SHARE">
     <result column="SERVICE_CODE" jdbcType="VARCHAR" property="SERVICE_CODE" />
     <result column="TIME_TYPE" jdbcType="DECIMAL" property="TIME_TYPE" />
-    <result column="TIME_FILS" jdbcType="DECIMAL" property="TIME_FILS" />
+    <result column="TIME_FILES" jdbcType="DECIMAL" property="TIME_FILES" />
     <result column="TABLE_NAME" jdbcType="VARCHAR" property="TABLE_NAME" />
     <result column="IS_COMPLETE" jdbcType="DECIMAL" property="IS_COMPLETE" />
     <result column="IS_SHARED" jdbcType="DECIMAL" property="IS_SHARED" />
@@ -74,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    SERVICE_CODE, TIME_TYPE, TIME_FILS, TABLE_NAME, IS_COMPLETE, IS_SHARED, REC_VENDOR, 
+    SERVICE_CODE, TIME_TYPE, TIME_FILES, TABLE_NAME, IS_COMPLETE, IS_SHARED, REC_VENDOR, 
     DESCR, FTP_IP, FILE_PATTERN, SERVICE_NAME, IS_MONITOR
   </sql>
   <select id="selectByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample" resultMap="BaseResultMap">
@@ -83,7 +83,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from IPMSDM.META_PI_CFG_ESB_SHARE
+    from IPMSDS.META_PI_CFG_ESB_SHARE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -92,25 +92,25 @@
     </if>
   </select>
   <delete id="deleteByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample">
-    delete from IPMSDM.META_PI_CFG_ESB_SHARE
+    delete from IPMSDS.META_PI_CFG_ESB_SHARE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHARE">
-    insert into IPMSDM.META_PI_CFG_ESB_SHARE (SERVICE_CODE, TIME_TYPE, TIME_FILS, 
+    insert into IPMSDS.META_PI_CFG_ESB_SHARE (SERVICE_CODE, TIME_TYPE, TIME_FILES, 
       TABLE_NAME, IS_COMPLETE, IS_SHARED, 
       REC_VENDOR, DESCR, FTP_IP, 
       FILE_PATTERN, SERVICE_NAME, IS_MONITOR
       )
-    values (#{SERVICE_CODE,jdbcType=VARCHAR}, #{TIME_TYPE,jdbcType=DECIMAL}, #{TIME_FILS,jdbcType=DECIMAL}, 
+    values (#{SERVICE_CODE,jdbcType=VARCHAR}, #{TIME_TYPE,jdbcType=DECIMAL}, #{TIME_FILES,jdbcType=DECIMAL}, 
       #{TABLE_NAME,jdbcType=VARCHAR}, #{IS_COMPLETE,jdbcType=DECIMAL}, #{IS_SHARED,jdbcType=DECIMAL}, 
       #{REC_VENDOR,jdbcType=VARCHAR}, #{DESCR,jdbcType=VARCHAR}, #{FTP_IP,jdbcType=VARCHAR}, 
       #{FILE_PATTERN,jdbcType=VARCHAR}, #{SERVICE_NAME,jdbcType=VARCHAR}, #{IS_MONITOR,jdbcType=DECIMAL}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHARE">
-    insert into IPMSDM.META_PI_CFG_ESB_SHARE
+    insert into IPMSDS.META_PI_CFG_ESB_SHARE
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="SERVICE_CODE != null">
         SERVICE_CODE,
@@ -118,8 +118,8 @@
       <if test="TIME_TYPE != null">
         TIME_TYPE,
       </if>
-      <if test="TIME_FILS != null">
-        TIME_FILS,
+      <if test="TIME_FILES != null">
+        TIME_FILES,
       </if>
       <if test="TABLE_NAME != null">
         TABLE_NAME,
@@ -156,8 +156,8 @@
       <if test="TIME_TYPE != null">
         #{TIME_TYPE,jdbcType=DECIMAL},
       </if>
-      <if test="TIME_FILS != null">
-        #{TIME_FILS,jdbcType=DECIMAL},
+      <if test="TIME_FILES != null">
+        #{TIME_FILES,jdbcType=DECIMAL},
       </if>
       <if test="TABLE_NAME != null">
         #{TABLE_NAME,jdbcType=VARCHAR},
@@ -189,13 +189,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.dao.mapping.META_PI_CFG_ESB_SHAREExample" resultType="java.lang.Long">
-    select count(*) from IPMSDM.META_PI_CFG_ESB_SHARE
+    select count(*) from IPMSDS.META_PI_CFG_ESB_SHARE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update IPMSDM.META_PI_CFG_ESB_SHARE
+    update IPMSDS.META_PI_CFG_ESB_SHARE
     <set>
       <if test="record.SERVICE_CODE != null">
         SERVICE_CODE = #{record.SERVICE_CODE,jdbcType=VARCHAR},
@@ -203,8 +203,8 @@
       <if test="record.TIME_TYPE != null">
         TIME_TYPE = #{record.TIME_TYPE,jdbcType=DECIMAL},
       </if>
-      <if test="record.TIME_FILS != null">
-        TIME_FILS = #{record.TIME_FILS,jdbcType=DECIMAL},
+      <if test="record.TIME_FILES != null">
+        TIME_FILES = #{record.TIME_FILES,jdbcType=DECIMAL},
       </if>
       <if test="record.TABLE_NAME != null">
         TABLE_NAME = #{record.TABLE_NAME,jdbcType=VARCHAR},
@@ -239,10 +239,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update IPMSDM.META_PI_CFG_ESB_SHARE
+    update IPMSDS.META_PI_CFG_ESB_SHARE
     set SERVICE_CODE = #{record.SERVICE_CODE,jdbcType=VARCHAR},
       TIME_TYPE = #{record.TIME_TYPE,jdbcType=DECIMAL},
-      TIME_FILS = #{record.TIME_FILS,jdbcType=DECIMAL},
+      TIME_FILES = #{record.TIME_FILES,jdbcType=DECIMAL},
       TABLE_NAME = #{record.TABLE_NAME,jdbcType=VARCHAR},
       IS_COMPLETE = #{record.IS_COMPLETE,jdbcType=DECIMAL},
       IS_SHARED = #{record.IS_SHARED,jdbcType=DECIMAL},

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
+import com.service.util.common.StringTool;
 
 public class EsbUpConfig {
 	private String id;
@@ -74,6 +75,8 @@ public class EsbUpConfig {
 		map.put("charset","utf-8");
 		list.add(map);
 		esbUpConfig.setExtInfo(list);
-		System.out.println(JSON.toJSON(esbUpConfig));
+		String json = JSON.toJSON(esbUpConfig).toString();
+		json = StringTool.formatJson(json);
+		System.out.println(json);
 	}
 }

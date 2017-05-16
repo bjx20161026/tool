@@ -1,4 +1,4 @@
-package com.dao.mapping.ipmsdm;
+package com.dao.mapping.ipmsds;
 
 import com.dao.mapping.META_PI_CFG_ESB_SHARE;
 import com.dao.mapping.META_PI_CFG_ESB_SHAREExample;
