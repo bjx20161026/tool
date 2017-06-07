@@ -42,7 +42,7 @@ public class FileOperate {
 		ftpClient.connect(ffo.getHost());
 		ftpClient.login(ffo.getUsername(), ffo.getPassword());
 		ftpClient.enterLocalPassiveMode();
-		
+
 	}
 
 	public void cd() throws Exception {
@@ -95,6 +95,15 @@ public class FileOperate {
 		ftpClient.rename(name, filename);
 	}
 
+	public void MakeRemoteDir() throws Exception {
+		String dir = fileObject.getDir();
+		String directory = dir.substring(0, dir.lastIndexOf("/"));
+		String path = dir.substring(dir.lastIndexOf("/") + 1, dir.length());
+		login();
+		ftpClient.changeWorkingDirectory(directory);
+		ftpClient.makeDirectory(path);
+	}
+
 	public void disConnect() {
 		try {
 			ftpClient.disconnect();
@@ -125,5 +134,17 @@ public class FileOperate {
 
 	public void setFtpClient(FTPClient ftpClient) {
 		this.ftpClient = ftpClient;
+	}
+
+	public static void main(String[] args) {
+		FileOperate fo = new FileOperate(
+				"ftp://wangguan:3LzA8.dY@10.221.15.121:21/data/sys12/wgw.log.(.*?)");
+		try {
+			fo.login();
+			fo.cd();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

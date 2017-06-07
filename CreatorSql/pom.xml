@@ -4,6 +4,7 @@
   <artifactId>SpringDatasourceTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  
   	<properties>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<jackson.version>1.9.10</jackson.version>
@@ -21,8 +22,15 @@
 			<url>http://23.247.25.117:8081/nexus/content/repositories/thirdparty/</url>
 		</repository>
 	</repositories>
+	<dependencies> 
 	
-	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-csv</artifactId>
+    <version>1.4</version>
+</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 <dependency>
     <groupId>org.mybatis</groupId>

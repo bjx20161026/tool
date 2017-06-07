@@ -5,9 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSON;
-import com.service.util.common.StringTool;
+import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.annotation.JSONType;
+@Service
+@JSONType(orders={"id","mtime","url","maxTimeSql","querySql","createrClass","extInfo"})
 public class EsbUpConfig {
 	private String id;
 	private int mtime;
@@ -15,11 +18,9 @@ public class EsbUpConfig {
 	private String maxTimeSql;
 	private String querySql;
 	private String createrClass;
-	private List<Map<String,String>> extInfo;
+	private Map<String,String> extInfo;
 	
-	public String getId() {
-		return id;
-	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -53,11 +54,14 @@ public class EsbUpConfig {
 	public void setCreaterClass(String createrClass) {
 		this.createrClass = createrClass;
 	}
-	public List<Map<String, String>> getExtInfo() {
+	public Map<String, String> getExtInfo() {
 		return extInfo;
 	}
-	public void setExtInfo(List<Map<String, String>> extInfo) {
+	public void setExtInfo(Map<String, String> extInfo) {
 		this.extInfo = extInfo;
+	}
+	public String getId() {
+		return id;
 	}
 	
 	public static void main(String[] args){
@@ -74,9 +78,8 @@ public class EsbUpConfig {
 		map.put("timeIndex","0");
 		map.put("charset","utf-8");
 		list.add(map);
-		esbUpConfig.setExtInfo(list);
-		String json = JSON.toJSON(esbUpConfig).toString();
-		json = StringTool.formatJson(json);
+		esbUpConfig.setExtInfo(map);
+		String json = JSON.toJSONString(esbUpConfig,true);
 		System.out.println(json);
 	}
 }

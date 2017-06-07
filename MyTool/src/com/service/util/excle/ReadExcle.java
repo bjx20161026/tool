@@ -64,7 +64,7 @@ public class ReadExcle {
 	}
 
 	/**
-	 * Read the Excel 2007 and later
+	 * Read the Excel 2007 or later
 	 * 
 	 * @param path
 	 *            the path of the excel file
@@ -76,7 +76,7 @@ public class ReadExcle {
 		InputStream is = new FileInputStream(path);
 		list = new ArrayList<Map<String, String>>();
 		xssfWorkbook = new XSSFWorkbook(is);
-		for (int numSheet = 0; numSheet < xssfWorkbook.getNumberOfSheets(); numSheet++) {
+		for (int numSheet = 0; numSheet < 1/*xssfWorkbook.getNumberOfSheets()*/; numSheet++) {
 			xssfSheet = xssfWorkbook.getSheetAt(numSheet);
 			if (xssfSheet == null)
 				continue;
@@ -96,13 +96,13 @@ public class ReadExcle {
 				if (xssfRow != null) {
 					map = new HashMap<String, String>();
 					for (int j = 0; j < heads.size(); j++) {
-						System.out.println("读入的内容："+heads.get(j)+"+"+getValue(xssfRow.getCell(j)));
 						map.put(heads.get(j), getValue(xssfRow.getCell(j)));
 					}
 					list.add(map);
 				}
 			}
 		}
+		logger.info("list.size:"+list.size());
 		return list;
 	}
 
@@ -188,6 +188,20 @@ public class ReadExcle {
 			}
 		} catch (NullPointerException e) {
 			return null;
+		}
+	}
+	
+	
+	public static void main(String[] args) throws Exception{
+		ReadExcle readExcle = new ReadExcle();
+		List<Map<String,String>>  datas = readExcle.readExcel("F:/test.xlsx");
+		for(int i = 0;i<datas.size();i++){
+//			System.out.println(i);
+			@SuppressWarnings("rawtypes")
+			Map data = datas.get(i);
+			System.out.println(data.get("1"));
+			System.out.println(data.get("2"));
+			System.out.println(data.get("3"));
 		}
 	}
 }

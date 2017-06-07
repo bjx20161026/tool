@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>SSMLearning</groupId>
-	<artifactId>SSMLearning</artifactId>
+	<groupId>MyTool</groupId>
+	<artifactId>MyTool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -109,7 +109,15 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			 <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <version>2.5</version>
+                     <webXml>WebContent\WEB-INF\web.xml</webXml>
+               </configuration>
+           </plugin>
 		</plugins>
+		
 	</build>
 	<packaging>war</packaging>
 </project>

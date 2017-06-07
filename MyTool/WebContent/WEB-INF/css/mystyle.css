@@ -1,0 +1,14 @@
+hr {color:sienna;}
+p {margin-left:20px;text-align:center;}
+h1 {text-align:center;}
+#tb {margin-left:560px;text-align:center;}
+a {text-align:center;margin:0 auto}
+#lowa {
+	position:absolute;
+	bottom:30px;
+	right:615px;
+	}
+p.pos_fixed{
+	text-align:center;
+	font-size:0.500em;
+}
