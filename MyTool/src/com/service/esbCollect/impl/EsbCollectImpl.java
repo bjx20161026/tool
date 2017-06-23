@@ -13,4 +13,8 @@ public class EsbCollectImpl implements EsbCollect {
 		FileOperate fo = new FileOperate(url);
 		return null;
 	}
+	
+	public static void test(){
+		
+	}
 }

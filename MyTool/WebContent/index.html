@@ -5,25 +5,15 @@
 <meta http-equiv="refresh" content="3000">
 <title>我的首页</title>
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
-<script>
-function loginCheck(){
-var name = document.getElementById("name").value;
-var password = document.getElementById("password").value;
-if(name == "1234"){
-window.location.href="http://blog.csdn.net/bjx1234bjx/article/details/70308339";
-}else{
-alert("用户名:"+name+"\r"+"密码:"+password);
-}
-}
-</script>
+<script type="text/javascript" src="js/CheckPasssWord.js"></script>
 </head>
 <body>
 	<p>
-		<a href="http://blog.csdn.net/bjx1234bjx/article/details/70308339"><img
-			src="/images/xbx.jpg" width="45" height="44" alt="图片" /></a>
+		<a href="http://blog.csdn.net/bjx1234bjx/article/details/70308339" target="_blank"><img
+			src="images/xbx.jpg" width="45" height="44" alt="图片" /></a>
 	</p>
 	<p>
-		<a href="/WEB-INF/html/Test2.html"><b>说明</b></a>
+		<a href="html/Test2.html" target="_blank"><b>说明</b></a>
 	</p>
 	<hr>
 	<p id="result"></p>

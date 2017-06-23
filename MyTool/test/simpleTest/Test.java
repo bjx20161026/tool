@@ -1,13 +1,19 @@
 package simpleTest;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Test {
-	public static void main(String[] args) throws Exception {
-		InputStream is = new FileInputStream("F:/test2.csv");
+	public void testa() throws Exception {
+		InputStream is = new FileInputStream("F:/test1232.csv");
 		InputStreamReader isr = new InputStreamReader(is, "GBK");
 		BufferedReader br = new BufferedReader(isr);
 		String temp;
@@ -38,4 +44,16 @@ public class Test {
 		}
 		return temp;
 	}
+	
+	public static void main(String[] args) throws Exception{
+		File path = new File("F:/FastCollectRecord/2017-06-22");
+		if(!path.exists()){
+			path.mkdirs();
+		}
+		File file = new File("F:/FastCollectRecord/2017-06-22/test.txt");
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+	}
+	
 }

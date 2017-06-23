@@ -40,8 +40,8 @@
 		</javaClientGenerator>
 
 
-		<table schema="ipmsds" tableName="META_PI_CFG_ESB_SHARE"
-			domainObjectName="META_PI_CFG_ESB_SHARE">
+		<table schema="ipmsdm" tableName="dm_co_ba_task_record"
+			domainObjectName="FastCollectRecord">
 			<property name="useActualColumnNames" value="true" />
 		</table>
 	</context>

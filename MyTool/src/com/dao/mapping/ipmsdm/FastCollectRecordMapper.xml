@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapping.ipmsdm.FastCollectRecordMapper">
+  <resultMap id="BaseResultMap" type="com.dao.mapping.FastCollectRecord">
+    <result column="UUID" jdbcType="VARCHAR" property="UUID" />
+    <result column="INSERT_TIME" jdbcType="DATE" property="INSERT_TIME" />
+    <result column="PROTOCOL" jdbcType="VARCHAR" property="PROTOCOL" />
+    <result column="DEALTYPE" jdbcType="VARCHAR" property="DEALTYPE" />
+    <result column="FILENAME" jdbcType="VARCHAR" property="FILENAME" />
+    <result column="FILEPATH" jdbcType="VARCHAR" property="FILEPATH" />
+    <result column="SPENDTIME" jdbcType="DECIMAL" property="SPENDTIME" />
+    <result column="QUANTITY" jdbcType="DECIMAL" property="QUANTITY" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.dao.mapping.FastCollectRecord">
+    <result column="ERRORINFO" jdbcType="CLOB" property="ERRORINFO" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    UUID, INSERT_TIME, PROTOCOL, DEALTYPE, FILENAME, FILEPATH, SPENDTIME, QUANTITY
+  </sql>
+  <sql id="Blob_Column_List">
+    ERRORINFO
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.dao.mapping.FastCollectRecordExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from IPMSDM.DM_CO_BA_TASK_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.dao.mapping.FastCollectRecordExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IPMSDM.DM_CO_BA_TASK_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.dao.mapping.FastCollectRecordExample">
+    delete from IPMSDM.DM_CO_BA_TASK_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dao.mapping.FastCollectRecord">
+    insert into IPMSDM.DM_CO_BA_TASK_RECORD (UUID, INSERT_TIME, PROTOCOL, 
+      DEALTYPE, FILENAME, FILEPATH, 
+      SPENDTIME, QUANTITY, ERRORINFO
+      )
+    values (#{UUID,jdbcType=VARCHAR}, #{INSERT_TIME,jdbcType=DATE}, #{PROTOCOL,jdbcType=VARCHAR}, 
+      #{DEALTYPE,jdbcType=VARCHAR}, #{FILENAME,jdbcType=VARCHAR}, #{FILEPATH,jdbcType=VARCHAR}, 
+      #{SPENDTIME,jdbcType=DECIMAL}, #{QUANTITY,jdbcType=DECIMAL}, #{ERRORINFO,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dao.mapping.FastCollectRecord">
+    insert into IPMSDM.DM_CO_BA_TASK_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="UUID != null">
+        UUID,
+      </if>
+      <if test="INSERT_TIME != null">
+        INSERT_TIME,
+      </if>
+      <if test="PROTOCOL != null">
+        PROTOCOL,
+      </if>
+      <if test="DEALTYPE != null">
+        DEALTYPE,
+      </if>
+      <if test="FILENAME != null">
+        FILENAME,
+      </if>
+      <if test="FILEPATH != null">
+        FILEPATH,
+      </if>
+      <if test="SPENDTIME != null">
+        SPENDTIME,
+      </if>
+      <if test="QUANTITY != null">
+        QUANTITY,
+      </if>
+      <if test="ERRORINFO != null">
+        ERRORINFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="UUID != null">
+        #{UUID,jdbcType=VARCHAR},
+      </if>
+      <if test="INSERT_TIME != null">
+        #{INSERT_TIME,jdbcType=DATE},
+      </if>
+      <if test="PROTOCOL != null">
+        #{PROTOCOL,jdbcType=VARCHAR},
+      </if>
+      <if test="DEALTYPE != null">
+        #{DEALTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="FILENAME != null">
+        #{FILENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="FILEPATH != null">
+        #{FILEPATH,jdbcType=VARCHAR},
+      </if>
+      <if test="SPENDTIME != null">
+        #{SPENDTIME,jdbcType=DECIMAL},
+      </if>
+      <if test="QUANTITY != null">
+        #{QUANTITY,jdbcType=DECIMAL},
+      </if>
+      <if test="ERRORINFO != null">
+        #{ERRORINFO,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dao.mapping.FastCollectRecordExample" resultType="java.lang.Long">
+    select count(*) from IPMSDM.DM_CO_BA_TASK_RECORD
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update IPMSDM.DM_CO_BA_TASK_RECORD
+    <set>
+      <if test="record.UUID != null">
+        UUID = #{record.UUID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.INSERT_TIME != null">
+        INSERT_TIME = #{record.INSERT_TIME,jdbcType=DATE},
+      </if>
+      <if test="record.PROTOCOL != null">
+        PROTOCOL = #{record.PROTOCOL,jdbcType=VARCHAR},
+      </if>
+      <if test="record.DEALTYPE != null">
+        DEALTYPE = #{record.DEALTYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FILENAME != null">
+        FILENAME = #{record.FILENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="record.FILEPATH != null">
+        FILEPATH = #{record.FILEPATH,jdbcType=VARCHAR},
+      </if>
+      <if test="record.SPENDTIME != null">
+        SPENDTIME = #{record.SPENDTIME,jdbcType=DECIMAL},
+      </if>
+      <if test="record.QUANTITY != null">
+        QUANTITY = #{record.QUANTITY,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ERRORINFO != null">
+        ERRORINFO = #{record.ERRORINFO,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update IPMSDM.DM_CO_BA_TASK_RECORD
+    set UUID = #{record.UUID,jdbcType=VARCHAR},
+      INSERT_TIME = #{record.INSERT_TIME,jdbcType=DATE},
+      PROTOCOL = #{record.PROTOCOL,jdbcType=VARCHAR},
+      DEALTYPE = #{record.DEALTYPE,jdbcType=VARCHAR},
+      FILENAME = #{record.FILENAME,jdbcType=VARCHAR},
+      FILEPATH = #{record.FILEPATH,jdbcType=VARCHAR},
+      SPENDTIME = #{record.SPENDTIME,jdbcType=DECIMAL},
+      QUANTITY = #{record.QUANTITY,jdbcType=DECIMAL},
+      ERRORINFO = #{record.ERRORINFO,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update IPMSDM.DM_CO_BA_TASK_RECORD
+    set UUID = #{record.UUID,jdbcType=VARCHAR},
+      INSERT_TIME = #{record.INSERT_TIME,jdbcType=DATE},
+      PROTOCOL = #{record.PROTOCOL,jdbcType=VARCHAR},
+      DEALTYPE = #{record.DEALTYPE,jdbcType=VARCHAR},
+      FILENAME = #{record.FILENAME,jdbcType=VARCHAR},
+      FILEPATH = #{record.FILEPATH,jdbcType=VARCHAR},
+      SPENDTIME = #{record.SPENDTIME,jdbcType=DECIMAL},
+      QUANTITY = #{record.QUANTITY,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

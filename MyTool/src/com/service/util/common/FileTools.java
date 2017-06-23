@@ -2,8 +2,8 @@ package com.service.util.common;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public class FileTools {
 		}
 		return result;
 	}
-/* 读取配置文件，返回properties 对象
- * 
+/* 
+ * read properties file then return properties object
  */
 	public static Properties getProperties(String path) {
 		Properties pro = new Properties();
@@ -45,25 +45,43 @@ public class FileTools {
 		return pro;
 	}
 	
-	/*修改或添加配置参数
-	 * 
+	/*
+	 * change or add properties parameters
 	 */
 	public static void setProperties(Map<String,String> map,String path) throws Exception{
 		    Properties prop = new Properties();
 	        InputStream fis = new FileInputStream("config/"+path);
-	        // 从输入流中读取属性列表（键和元素对）
+	        // read original parameters
 	        prop.load(fis);
-	        // 调用 Hashtable 的方法 put。使用 getProperty 方法提供并行性。
-	        // 强制要求为属性的键和值使用字符串。返回值是 Hashtable 调用 put 的结果。
 	        OutputStream fos = new FileOutputStream("config/"+path);
 	        for(String key:map.keySet()){
 	        	prop.setProperty(key, map.get(key));
 	        }
-	        // 以适合使用 load 方法加载到 Properties 表中的格式，
-	        // 将此 Properties 表中的属性列表（键和元素对）写入输出流
 	        prop.store(fos,"last update");
-	        //关闭文件
 	        fis.close();
 	        fos.close();
+	}
+	
+	public static File CtreatFile(String fileName) throws IOException{
+		String filePath = fileName.substring(0, fileName.lastIndexOf("/"));
+		System.out.println(filePath);
+		File path = new File(filePath);
+		if(!path.exists()){
+			path.mkdirs();
+		}
+		File file = new File(fileName);
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		return file;
+	}
+	
+	public static void main(String[] args){
+		try {
+			FileTools.CtreatFile("F:/justTest/asdf.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
