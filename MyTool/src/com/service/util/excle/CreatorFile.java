@@ -97,7 +97,7 @@ public class CreatorFile {
 				for (int i = 0; i < heads.length; i++) {
 					Cell cell = row.createCell(i, Cell.CELL_TYPE_STRING);
 					System.out.println(map.get(heads[i]));
-					cell.setCellValue(map.get(heads[i]).equals("null") ? "" : map.get(heads[i]));
+					cell.setCellValue(map.get(heads[i])==null ? "" : map.get(heads[i]));
 				}
 			}
 			workbook.write(bos);

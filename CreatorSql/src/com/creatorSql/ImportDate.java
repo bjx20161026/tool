@@ -34,22 +34,23 @@ public class ImportDate {
 		dataSource.setUsername("IPMSDM");
 		dataSource.setPassword("SHipmsdm!23$");
 	    jdbcTemplate=new JdbcTemplate(dataSource);
-	    
-	    ImportDate importDate = new ImportDate();
-		List<String> strs = FileTools.listFiles("F:/jiakuan");
-		for (String path : strs) {
-			System.out.println("path: " + path);
-		 List<HashMap<String, String>> list = null;
-		 ReadExcle readExcle=new ReadExcle();
-		 try {
-			list=readExcle.readExcel(path);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 importDate.InsertSql(list);
-		 }
-		
+		jdbcTemplate.update("insert into ipmsdm.dm_co_ba_task_record(PROTOCOL) values ('滧')");
+
+//	    ImportDate importDate = new ImportDate();
+//		List<String> strs = FileTools.listFiles("F:/jiakuan");
+//		for (String path : strs) {
+//			System.out.println("path: " + path);
+//		 List<HashMap<String, String>> list = null;
+//		 ReadExcle readExcle=new ReadExcle();
+//		 try {
+//			list=readExcle.readExcel(path);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		 importDate.InsertSql(list);
+//		 }
+//		
 		 System.out.println("finished");
 	}
 }

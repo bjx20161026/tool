@@ -166,6 +166,7 @@ public class EsbUploadImpl implements EsbUpload {
 		extInfo.put("timeIndex", map.get("timeIndex") == null ? "0" : map.get("timeIndex"));
 		extInfo.put("charset", map.get("charset") == null ? "utf-8" : map.get("charset"));
 		extInfo.put("seperator", map.get("seperator") == null ? "|" : map.get("seperator"));
+		extInfo.put("endSeparater", map.get("endSeparater") == null ? "\n" : map.get("endSeparater"));
 		pro = FileTools.getProperties("EsbUpload.properties");
 		String extStr = pro.getProperty("extInfo");
 		String[] extStrs = extStr.split(",");
@@ -203,11 +204,7 @@ public class EsbUploadImpl implements EsbUpload {
 	}
 
 	public static void main(String[] args) {
-		Properties pro = FileTools.getProperties("EsbUpload.properties");
-		String extStr = pro.getProperty("extInfo");
-		String[] extStrs = extStr.split(",");
-		for (String ext : extStrs) {
-			System.out.println(ext);
-		}
+		System.out.println("\\n");
+
 	}
 }

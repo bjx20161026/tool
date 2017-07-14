@@ -19,6 +19,7 @@ public class GetTask {
 		short s = 1;
 		Criteria.andENABLEDEqualTo(s);
 		Criteria.andSUBIDLike(type);
+		Criteria.andSERVER_IPEqualTo("10.221.18.29");
 		return taskTableDao.selectByExample(task_mngExample);		
 	}
 }
