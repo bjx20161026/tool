@@ -22,7 +22,30 @@
 			<url>http://23.247.25.117:8081/nexus/content/repositories/thirdparty/</url>
 		</repository>
 	</repositories>
+	
 	<dependencies> 
+	<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
+<dependency>
+    <groupId>org.apache.activemq</groupId>
+    <artifactId>activemq-core</artifactId>
+    <version>5.7.0</version>
+</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.jms/jms -->
+<dependency>
+    <groupId>javax.jms</groupId>
+    <artifactId>jms</artifactId>
+    <version>1.1</version>
+</dependency>
+	
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>3.15</version>
+</dependency>
+
+	
 	
 	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
 <dependency>
