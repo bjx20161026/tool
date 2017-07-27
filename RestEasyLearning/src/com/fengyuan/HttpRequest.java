@@ -132,13 +132,13 @@ public class HttpRequest {
     
     public static void main(String[] args){
 //    	System.out.println(HttpRequest.sendGet("http://localhost:8080/WlanOrderAutomatic/rest/workOrder/getOrderByCondition?limit=10&start=9", ""));;
-//    	HttpRequest.sendByteGet("http://localhost:8080/WlanOrderAutomatic/rest/workOrder/export?title=asdfa&exportType=csv", "");
-    	try {
-			String result=Https.newGetHttps("http://192.168.1.121:8080/WlanOrderAutomatic/rest/workOrder/export?title=asdfa&exportType=csv").bos(new FileOutputStream("d:/temp3.csv")).execute();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	HttpRequest.sendPost("http://localhost:8080/WlanOrderAutomatic/rest/workOrder/handleOrders", "asd");
+//    	try {
+//			String result=Https.newGetHttps("http://192.168.1.121:8080/WlanOrderAutomatic/rest/workOrder/export?title=asdfa&exportType=csv").bos(new FileOutputStream("d:/temp3.csv")).execute();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     }
 
     /**

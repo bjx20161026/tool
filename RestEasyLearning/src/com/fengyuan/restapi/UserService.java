@@ -143,15 +143,15 @@ public class UserService {
 		connection.setConnectTimeout(5000);
 		connection.connect();
 		Map<String, List<String>> map = connection.getHeaderFields();
-		InputStream bis = connection.getInputStream();// ByteArrayOutputStream
-		int c = bis.read();// 读取bis流中的下一个字节
+		InputStream is = connection.getInputStream();// ByteArrayOutputStream
+		int c = is.read();// 读取bis流中的下一个字节
 		while (c != -1) {
 			bo.write(c);
-			c = bis.read();
+			c = is.read();
 		}
-		bis.close();
-		ResponseBuilder response = Response.ok();
-		response.header("Content-Type", map.get("Content-Type"));
+		is.close();
+		ResponseBuilder response = Response.ok("asdfa");
+        response.header("Content-Type",map.get("Content-Type").get(0));
 		return response.build();
 	}
 }
