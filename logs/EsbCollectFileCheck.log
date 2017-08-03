@@ -1,0 +1,376 @@
+2017-08-03 15:40:05  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-03 15:40:05  [ main:20 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-03 15:40:05  [ main:25 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ? 
+and receive_time_stamp>trunc(sysdate))]
+2017-08-03 15:40:05  [ main:30 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-03 15:40:05  [ main:30 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-03 15:40:06  [ main:363 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP], value class [java.lang.String], SQL type unknown
+2017-08-03 15:40:06  [ main:365 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP], value class [java.lang.String], SQL type unknown
+2017-08-03 15:40:16  [ main:10978 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-03 15:42:12  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-03 15:42:12  [ main:19 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-03 15:42:12  [ main:20 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like %?%
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like %?%
+and receive_time_stamp>trunc(sysdate))]
+2017-08-03 15:42:12  [ main:25 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-03 15:42:12  [ main:25 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-03 15:42:13  [ main:643 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP], value class [java.lang.String], SQL type unknown
+2017-08-03 15:42:13  [ main:645 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP], value class [java.lang.String], SQL type unknown
+2017-08-03 15:42:13  [ main:702 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-03 15:42:13  [ main:801 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:803 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:805 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:806 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:811 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:811 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:812 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:812 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:830 ] - [ INFO ]  Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2017-08-03 15:42:13  [ main:836 ] - [ DEBUG ]  Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+2017-08-03 15:42:13  [ main:856 ] - [ DEBUG ]  Trying to resolve XML entity with public ID [-//SPRING//DTD BEAN 2.0//EN] and system ID [http://www.springframework.org/dtd/spring-beans-2.0.dtd]
+2017-08-03 15:42:13  [ main:857 ] - [ DEBUG ]  Trying to locate [spring-beans-2.0.dtd] in Spring jar
+2017-08-03 15:42:13  [ main:858 ] - [ DEBUG ]  Found beans DTD [http://www.springframework.org/dtd/spring-beans-2.0.dtd] in classpath: spring-beans-2.0.dtd
+2017-08-03 15:42:13  [ main:905 ] - [ DEBUG ]  Loading bean definitions
+2017-08-03 15:42:13  [ main:932 ] - [ DEBUG ]  Creating shared instance of singleton bean 'DB2'
+2017-08-03 15:42:13  [ main:932 ] - [ DEBUG ]  Creating instance of bean 'DB2'
+2017-08-03 15:42:13  [ main:942 ] - [ DEBUG ]  Eagerly caching bean 'DB2' to allow for resolving potential circular references
+2017-08-03 15:42:13  [ main:955 ] - [ DEBUG ]  Loaded [org.springframework.beans.BeanInfoFactory] names: [org.springframework.beans.ExtendedBeanInfoFactory]
+2017-08-03 15:42:13  [ main:958 ] - [ DEBUG ]  Getting BeanInfo for class [org.springframework.jdbc.support.SQLErrorCodes]
+2017-08-03 15:42:13  [ main:962 ] - [ DEBUG ]  Caching PropertyDescriptors for class [org.springframework.jdbc.support.SQLErrorCodes]
+2017-08-03 15:42:13  [ main:963 ] - [ DEBUG ]  Found bean property 'badSqlGrammarCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:974 ] - [ DEBUG ]  Found bean property 'cannotAcquireLockCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:974 ] - [ DEBUG ]  Found bean property 'cannotSerializeTransactionCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:974 ] - [ DEBUG ]  Found bean property 'class' of type [java.lang.Class]
+2017-08-03 15:42:13  [ main:975 ] - [ DEBUG ]  Found bean property 'customSqlExceptionTranslator' of type [org.springframework.jdbc.support.SQLExceptionTranslator]
+2017-08-03 15:42:13  [ main:975 ] - [ DEBUG ]  Found bean property 'customSqlExceptionTranslatorClass' of type [java.lang.Class]
+2017-08-03 15:42:13  [ main:976 ] - [ DEBUG ]  Found bean property 'customTranslations' of type [[Lorg.springframework.jdbc.support.CustomSQLErrorCodesTranslation;]
+2017-08-03 15:42:13  [ main:976 ] - [ DEBUG ]  Found bean property 'dataAccessResourceFailureCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:976 ] - [ DEBUG ]  Found bean property 'dataIntegrityViolationCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:979 ] - [ DEBUG ]  Found bean property 'databaseProductName' of type [java.lang.String]
+2017-08-03 15:42:13  [ main:979 ] - [ DEBUG ]  Found bean property 'databaseProductNames' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:979 ] - [ DEBUG ]  Found bean property 'deadlockLoserCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:979 ] - [ DEBUG ]  Found bean property 'duplicateKeyCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:980 ] - [ DEBUG ]  Found bean property 'invalidResultSetAccessCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:980 ] - [ DEBUG ]  Found bean property 'permissionDeniedCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:980 ] - [ DEBUG ]  Found bean property 'transientDataAccessResourceCodes' of type [[Ljava.lang.String;]
+2017-08-03 15:42:13  [ main:980 ] - [ DEBUG ]  Found bean property 'useSqlStateForTranslation' of type [boolean]
+2017-08-03 15:42:13  [ main:994 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:995 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:995 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:995 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:997 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:997 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:998 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:998 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:999 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:999 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1000 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1001 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1003 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1004 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1004 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1005 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1007 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1007 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1008 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1008 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1013 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1013 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1014 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1014 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1015 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1015 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@731d2572]
+2017-08-03 15:42:13  [ main:1017 ] - [ DEBUG ]  Finished creating instance of bean 'DB2'
+2017-08-03 15:42:13  [ main:1018 ] - [ DEBUG ]  Creating shared instance of singleton bean 'Derby'
+2017-08-03 15:42:13  [ main:1018 ] - [ DEBUG ]  Creating instance of bean 'Derby'
+2017-08-03 15:42:13  [ main:1018 ] - [ DEBUG ]  Eagerly caching bean 'Derby' to allow for resolving potential circular references
+2017-08-03 15:42:13  [ main:1019 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1019 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1021 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1021 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1023 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1023 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1023 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1024 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1025 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1025 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1026 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:13  [ main:1026 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:13  [ main:1027 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:13  [ main:1027 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1028 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1030 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1030 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1031 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1031 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1031 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1032 ] - [ DEBUG ]  Converting String to [boolean] using property editor [org.springframework.beans.propertyeditors.CustomBooleanEditor@45660d6]
+2017-08-03 15:42:14  [ main:1032 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1032 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1033 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1033 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1033 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1034 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@42ef83d3]
+2017-08-03 15:42:14  [ main:1034 ] - [ DEBUG ]  Finished creating instance of bean 'Derby'
+2017-08-03 15:42:14  [ main:1034 ] - [ DEBUG ]  Creating shared instance of singleton bean 'H2'
+2017-08-03 15:42:14  [ main:1035 ] - [ DEBUG ]  Creating instance of bean 'H2'
+2017-08-03 15:42:14  [ main:1035 ] - [ DEBUG ]  Eagerly caching bean 'H2' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1035 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1036 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1036 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1037 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1037 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1037 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1038 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1038 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1039 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1039 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1039 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1040 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1040 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1041 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1041 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1042 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1045 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1045 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1046 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1046 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1047 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@565bb966]
+2017-08-03 15:42:14  [ main:1047 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@565bb966]
+2017-08-03 15:42:14  [ main:1047 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@565bb966]
+2017-08-03 15:42:14  [ main:1048 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@565bb966]
+2017-08-03 15:42:14  [ main:1048 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@565bb966]
+2017-08-03 15:42:14  [ main:1049 ] - [ DEBUG ]  Finished creating instance of bean 'H2'
+2017-08-03 15:42:14  [ main:1049 ] - [ DEBUG ]  Creating shared instance of singleton bean 'HSQL'
+2017-08-03 15:42:14  [ main:1049 ] - [ DEBUG ]  Creating instance of bean 'HSQL'
+2017-08-03 15:42:14  [ main:1050 ] - [ DEBUG ]  Eagerly caching bean 'HSQL' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1050 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1051 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1051 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1052 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1052 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1052 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1053 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1053 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1054 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1054 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1054 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1055 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1055 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1056 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1056 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1056 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1057 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1057 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1057 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1058 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1058 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@1fe903d5]
+2017-08-03 15:42:14  [ main:1059 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@1fe903d5]
+2017-08-03 15:42:14  [ main:1059 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@1fe903d5]
+2017-08-03 15:42:14  [ main:1059 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@1fe903d5]
+2017-08-03 15:42:14  [ main:1059 ] - [ DEBUG ]  Finished creating instance of bean 'HSQL'
+2017-08-03 15:42:14  [ main:1060 ] - [ DEBUG ]  Creating shared instance of singleton bean 'Informix'
+2017-08-03 15:42:14  [ main:1060 ] - [ DEBUG ]  Creating instance of bean 'Informix'
+2017-08-03 15:42:14  [ main:1060 ] - [ DEBUG ]  Eagerly caching bean 'Informix' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1061 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1061 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1061 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1062 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1062 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1063 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1063 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1063 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1073 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1074 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1074 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1074 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1075 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1075 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1076 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1076 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1077 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1077 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1080 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1081 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1081 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@5076e8a7]
+2017-08-03 15:42:14  [ main:1081 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@5076e8a7]
+2017-08-03 15:42:14  [ main:1082 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@5076e8a7]
+2017-08-03 15:42:14  [ main:1082 ] - [ DEBUG ]  Finished creating instance of bean 'Informix'
+2017-08-03 15:42:14  [ main:1082 ] - [ DEBUG ]  Creating shared instance of singleton bean 'MS-SQL'
+2017-08-03 15:42:14  [ main:1083 ] - [ DEBUG ]  Creating instance of bean 'MS-SQL'
+2017-08-03 15:42:14  [ main:1083 ] - [ DEBUG ]  Eagerly caching bean 'MS-SQL' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1084 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1084 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1084 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1085 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1088 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1089 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1090 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1091 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1091 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1092 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1092 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1093 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1093 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1094 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1094 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1094 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1095 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1095 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1095 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1096 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1096 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1096 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1097 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1097 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1097 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1097 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1098 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@45490eb5]
+2017-08-03 15:42:14  [ main:1098 ] - [ DEBUG ]  Finished creating instance of bean 'MS-SQL'
+2017-08-03 15:42:14  [ main:1099 ] - [ DEBUG ]  Creating shared instance of singleton bean 'MySQL'
+2017-08-03 15:42:14  [ main:1099 ] - [ DEBUG ]  Creating instance of bean 'MySQL'
+2017-08-03 15:42:14  [ main:1099 ] - [ DEBUG ]  Eagerly caching bean 'MySQL' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1100 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1100 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1100 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1101 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1101 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1102 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1102 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1103 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1103 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1106 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1106 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1107 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1107 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1108 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1125 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1130 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1131 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1131 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1131 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1133 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1133 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1133 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1133 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1137 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1138 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1138 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@6983d95]
+2017-08-03 15:42:14  [ main:1138 ] - [ DEBUG ]  Finished creating instance of bean 'MySQL'
+2017-08-03 15:42:14  [ main:1139 ] - [ DEBUG ]  Creating shared instance of singleton bean 'Oracle'
+2017-08-03 15:42:14  [ main:1139 ] - [ DEBUG ]  Creating instance of bean 'Oracle'
+2017-08-03 15:42:14  [ main:1139 ] - [ DEBUG ]  Eagerly caching bean 'Oracle' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1140 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1140 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1140 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1141 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1143 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1144 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1144 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1144 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1145 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1145 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1145 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1146 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1146 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1146 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1146 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1147 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1147 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1150 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1150 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1150 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1150 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1151 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1151 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1151 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1151 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1154 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1154 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1154 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@74f30494]
+2017-08-03 15:42:14  [ main:1155 ] - [ DEBUG ]  Finished creating instance of bean 'Oracle'
+2017-08-03 15:42:14  [ main:1155 ] - [ DEBUG ]  Creating shared instance of singleton bean 'PostgreSQL'
+2017-08-03 15:42:14  [ main:1155 ] - [ DEBUG ]  Creating instance of bean 'PostgreSQL'
+2017-08-03 15:42:14  [ main:1156 ] - [ DEBUG ]  Eagerly caching bean 'PostgreSQL' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1156 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1157 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1157 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1157 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1158 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1158 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1158 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1158 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1159 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1159 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1159 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1160 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1160 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1160 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1161 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1161 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1161 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1162 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1162 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1162 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1163 ] - [ DEBUG ]  Converting String to [boolean] using property editor [org.springframework.beans.propertyeditors.CustomBooleanEditor@7eb1cc87]
+2017-08-03 15:42:14  [ main:1163 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1163 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1164 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1164 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1164 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1165 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1165 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@4aeaf40c]
+2017-08-03 15:42:14  [ main:1165 ] - [ DEBUG ]  Finished creating instance of bean 'PostgreSQL'
+2017-08-03 15:42:14  [ main:1166 ] - [ DEBUG ]  Creating shared instance of singleton bean 'Sybase'
+2017-08-03 15:42:14  [ main:1166 ] - [ DEBUG ]  Creating instance of bean 'Sybase'
+2017-08-03 15:42:14  [ main:1166 ] - [ DEBUG ]  Eagerly caching bean 'Sybase' to allow for resolving potential circular references
+2017-08-03 15:42:14  [ main:1167 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1167 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1167 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1168 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1168 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1168 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1169 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1169 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1169 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1170 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1170 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1170 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1171 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1171 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1171 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1171 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1172 ] - [ DEBUG ]  Initializing new StandardEnvironment
+2017-08-03 15:42:14  [ main:1174 ] - [ DEBUG ]  Adding [systemProperties] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1175 ] - [ DEBUG ]  Adding [systemEnvironment] PropertySource with lowest search precedence
+2017-08-03 15:42:14  [ main:1175 ] - [ DEBUG ]  Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+2017-08-03 15:42:14  [ main:1176 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1176 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1176 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1176 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1177 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1177 ] - [ DEBUG ]  Converting String to [class [Ljava.lang.String;] using property editor [org.springframework.beans.propertyeditors.StringArrayPropertyEditor@dfa6d18]
+2017-08-03 15:42:14  [ main:1177 ] - [ DEBUG ]  Finished creating instance of bean 'Sybase'
+2017-08-03 15:42:14  [ main:1177 ] - [ INFO ]  SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+2017-08-03 15:42:14  [ main:1178 ] - [ DEBUG ]  Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@341049d3]
+2017-08-03 15:42:14  [ main:1179 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-03 15:42:14  [ main:1179 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-03 15:42:14  [ main:1413 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-03 15:42:14  [ main:1463 ] - [ DEBUG ]  Database product name cached for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@341049d3]: name is 'Oracle'
+2017-08-03 15:42:14  [ main:1464 ] - [ DEBUG ]  SQL error codes for 'Oracle' found
+2017-08-03 15:42:14  [ main:1464 ] - [ DEBUG ]  Unable to translate SQLException with Error code '911', will now try the fallback translator
+2017-08-03 15:42:14  [ main:1472 ] - [ DEBUG ]  Extracted SQL state class '42' from value '42000'
+2017-08-03 15:43:58  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-03 15:43:58  [ main:19 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-03 15:43:58  [ main:20 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-03 15:43:58  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-03 15:43:58  [ main:27 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-03 15:43:59  [ main:318 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-03 15:43:59  [ main:319 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-03 15:44:15  [ main:17091 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
