@@ -2,7 +2,7 @@ package com.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class DealMetaDtMsgRecord {
+public class MetaDtMsgRecord {
 	JdbcTemplate jdbcTemplate;
 	String getMsgsql;
 /**
@@ -11,7 +11,7 @@ public class DealMetaDtMsgRecord {
 	public String GetMsg(String protocol){
 		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
 		jdbcTemplate = getJdbcTemplate.getIpmsdm();
-		getMsgsql = getJdbcTemplate.getPrepareSql("DealMetaDtMsgRecord.getMsgsql");
+		getMsgsql = getJdbcTemplate.getPrepareSql("MetaDtMsgRecord.getMsgsql");
 		return jdbcTemplate.queryForObject(getMsgsql,String.class,"%"+protocol+"%","%"+protocol+"%");
 	}
 	
@@ -29,7 +29,7 @@ public class DealMetaDtMsgRecord {
 	}
 	
 	public static void main(String[] args){
-		DealMetaDtMsgRecord dealMetaDtMsgRecord = new DealMetaDtMsgRecord();
+		MetaDtMsgRecord dealMetaDtMsgRecord = new MetaDtMsgRecord();
 		String msg = dealMetaDtMsgRecord.GetMsg("DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP");
 		System.out.println("msg--->>>"+msg);
 	}
