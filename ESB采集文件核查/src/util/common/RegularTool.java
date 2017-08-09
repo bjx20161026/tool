@@ -47,5 +47,7 @@ public class RegularTool {
 		System.out.println("map.get(1)--->>>"+map.get(1));
 		System.out.println("map.get(2)--->>>"+map.get(2));
 		System.out.println("map.get(3)--->>>"+map.get(3));
+//		String str = RegularTool.MatcherValue("12343daf",".*?([0-9]+).*?");
+//		System.out.println(str);
 	}
 }

@@ -32,6 +32,7 @@ public class LoadFile {
 			fo.disConnect();
 		}
 		logger.error("Dat文件没有找到--->>>"+fileName);
+		System.out.println("Dat文件没有找到--->>>"+fileName);
 		return null;
 	}
 	

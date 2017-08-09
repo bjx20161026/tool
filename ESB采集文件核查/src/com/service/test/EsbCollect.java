@@ -24,4 +24,9 @@ public class EsbCollect {
 	      }
 		return str;
 	}
+	public static void main(String[] args){
+		String str = "0123456789";
+		str = str.substring(2);
+		System.out.println(str);
+	}
 }

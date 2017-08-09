@@ -22,6 +22,7 @@ public class SimpleDate {
 			e.printStackTrace();
 		}*/
 		String str = "abc";
+		str = str.replaceAll("a|b", "M");
 		System.out.println(str.toUpperCase());
 	}
 }
