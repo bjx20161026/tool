@@ -13,7 +13,7 @@ public class EsbCollect {
 		Pattern r = Pattern.compile(pattern);
 		Matcher m = r.matcher(str);
 	      if (m.find( )) {
-	    	 System.out.println("Found count: " + m.groupCount() );
+	    	 System.out.println("Found count: " + m.groupCount());
 	         System.out.println("Found value: " + m.group(0) );
 	         System.out.println("Found value: " + m.group(1) );
 	         System.out.println("Found value: " + m.group(2) );

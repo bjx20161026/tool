@@ -20,6 +20,5 @@ public class GetJdbcTemplate {
 	public String getPrepareSql(String key){
 		Properties properties = FileTools.getProperties("PrepareSql.properties");
 		return properties.getProperty(key);
-		
 	}
 }

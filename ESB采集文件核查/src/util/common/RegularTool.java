@@ -1,5 +1,7 @@
 package util.common;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,8 +29,23 @@ public class RegularTool {
 		return null;
 	}
 	
-	public static void main(String[] args){
-		System.out.println(RegularTool.MatcherValue("as10.221.232.135:21",".*?(\\d+\\.\\d+\\.\\d+\\.\\d+:21)"));
+	public static Map<Integer,String> MatcherValues(String str,String format){
+		Map<Integer,String> map = new HashMap<Integer,String>();
+		Pattern p = Pattern.compile(format,Pattern.CASE_INSENSITIVE|Pattern.MULTILINE);  
+	    Matcher matcher = p.matcher(str);
+	    if(matcher.find()){
+	    	for(int i=0;i<=matcher.groupCount();i++){
+	    		map.put(i,matcher.group(i));
+	    	}
+	    	return map;
+	    }
+		return null;
 	}
-
+	
+	public static void main(String[] args){
+		Map<Integer,String> map = RegularTool.MatcherValues("(to_date(substr(?,1,17),'yy-mm-dd hh24:mi:ss') - to_date('1970-01-01','yyyy-mm-dd'))*24*60*60",".*?,(\\d+),(\\d+)\\),'(.*?)'\\) -.*?");
+		System.out.println("map.get(1)--->>>"+map.get(1));
+		System.out.println("map.get(2)--->>>"+map.get(2));
+		System.out.println("map.get(3)--->>>"+map.get(3));
+	}
 }
