@@ -74,9 +74,9 @@ public class RemoteBigFile {
 
 	public static void main(String[] args) throws Exception {
 		RemoteBigFile remoteBigFile = new RemoteBigFile();
+		remoteBigFile.setEndLine(10);
 		// System.out.println(remoteBigFile.ReadRemoteBigFile("ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170808000000.csv.gz"));
 		System.out.println(remoteBigFile.ReadRemoteBigFile(
-				"ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_H.PAS_APP/DW_FT_SE_DN1_50_H_20170809120000.csv.gz"));
+				"ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170810000000.csv.gz"));
 	}
-
 }

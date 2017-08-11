@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class RegularTool {
 	public static boolean IsNumber(String str){
+		if(str == null||str.equals("")) return true;
 		String format = "^(-?\\d+)(\\.\\d+)?$";
 		 Pattern p = Pattern.compile(format,Pattern.CASE_INSENSITIVE|Pattern.MULTILINE);  
 	     Matcher matcher = p.matcher(str);  
@@ -16,7 +17,6 @@ public class RegularTool {
 	public static boolean isMatcher(String str,String format){
 		Pattern p = Pattern.compile(format,Pattern.CASE_INSENSITIVE|Pattern.MULTILINE);  
 	    Matcher matcher = p.matcher(str);
-	    matcher.find();
 		return matcher.find();
 	}
 	

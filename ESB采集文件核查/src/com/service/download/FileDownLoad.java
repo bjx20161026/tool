@@ -39,7 +39,7 @@ public class FileDownLoad {
 	
 	public static void main(String[] args) throws Exception{
 		FileDownLoad fileDownLoad = new FileDownLoad();
-		String str = fileDownLoad.DownLoad("DATA.PM.NHM_CPU_MEM_KPI.GCP_APP");
+		String str = fileDownLoad.DownLoad("DATA.PM.ISMG_HYRT_IA_REPORT_EC_SI_SMSC.GCP_APP");
 		System.out.println("str--->>>"+str);
 	}
 }
