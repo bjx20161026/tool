@@ -132,7 +132,7 @@ public class LoadDataCheck {
 		LoadDataCheck loadDataCheck = new LoadDataCheck();
 		loadDataCheck.setNumber(true);
 		String str = loadDataCheck
-				.Check("Video_Result20170811071513.txt");
+				.Check("DATA.PM.Video_Result.ACT_APP");
 		System.out.println("处理结果是--->>>" + str);
 	}
 }

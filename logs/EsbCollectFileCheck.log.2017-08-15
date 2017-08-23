@@ -1,0 +1,12 @@
+2017-08-15 18:00:20  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-15 18:00:20  [ main:67 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-15 18:00:20  [ main:69 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-15 18:00:20  [ main:81 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-15 18:00:20  [ main:82 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-15 18:00:22  [ main:1723 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%RL_PUSH_TSORDERS_20170815175944.txt%], value class [java.lang.String], SQL type unknown
+2017-08-15 18:00:22  [ main:1735 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%RL_PUSH_TSORDERS_20170815175944.txt%], value class [java.lang.String], SQL type unknown
+2017-08-15 18:00:42  [ main:21659 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-15 18:00:42  [ main:21788 ] - [ INFO ]  xml--->><fileInfo><ftpInfo><Type>update</Type><DataCatalog>CHGR-MR.TA</DataCatalog><WorkMode>sync</WorkMode><SystemID>GCNI</SystemID><SessionID>1502791185170</SessionID><MsgSerial>1502791185170</MsgSerial><DeliveryTime>2017-08-15 17:59:45</DeliveryTime><ReadyStatusCode>1</ReadyStatusCode><ConnectionString>ftp://10.221.232.141:21</ConnectionString><Path>/rlorder</Path><userName>XNftp</userName><password>XNftp!$1</password><FileList>RL_PUSH_TSORDERS_20170815175944.txt</FileList><files><file><fileName>RL_PUSH_TSORDERS_20170815175944.txt</fileName><FileFormat>txt</FileFormat><FileSize></FileSize><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>true</IsCompressed><CompressKey></CompressKey><CharSet>utf-8</CharSet><DataInfo></DataInfo><FieldSeparator>|</FieldSeparator><LineSeparator></LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo></fileInfo>

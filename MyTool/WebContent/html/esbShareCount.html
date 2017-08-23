@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>FastCollect处理统计</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 825px; height: 600px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {   
+   var title = {
+      text: '采集共享统计'   
+   };
+   var subtitle = {
+      text: 'ipmsdm.dm_co_ba_task_record'
+   };
+   var xAxis;
+   function ShareXAxis(){ 
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json", 
+	               url:"http://localhost:9180/ESBCollectFileCheck/rest/MessageCount/shareXAxis", 
+	               success:function(result){ 
+	                   if(result!=null){
+	                       xAxis=result;
+	                       return result;          
+	                   } 
+	               } 
+	         }); 
+	   } 
+	   ShareXAxis();
+   var yAxis = {
+      title: {
+         text: '文件数量 (个)'
+      }
+   };
+   var plotOptions = {
+      line: {
+         dataLabels: {
+            enabled: true
+         },   
+         enableMouseTracking: true
+      }
+   };
+
+   var series;
+   function ShareSeries(){ 
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json", 
+	               url:"http://localhost:9180/ESBCollectFileCheck/rest/MessageCount/shareSeries", 
+	               success:function(result){ 
+	                   if(result!=null){ 
+	                       series=result;
+	                       return result;          
+	                   } 
+	               } 
+	         }); 
+	   } 
+	   ShareSeries();
+   
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);
+  
+});
+</script>
+</body>
+</html>

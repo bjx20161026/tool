@@ -32,6 +32,7 @@ public class EsbUploadImpl implements EsbUpload {
 	Properties pro;
 	String temp;
 	String maxSql;
+	boolean flag = true;
 	@Autowired
 	dm_co_ba_cfg_task_mngMapper taskTableDao;
 	@Autowired
@@ -64,7 +65,9 @@ public class EsbUploadImpl implements EsbUpload {
 			list = readExcle.readExcel(filePath);
 			int cc = InsertConfigTable(list);
 			int sc = 1;
-//					InsertShareTable(list);
+			if(flag==true){
+				sc =	InsertShareTable(list);
+			}
 			int tc = InsertTaskTable(list);
 			esbUploadMsg.setMsg(cc, sc, tc, filePath);
 		} catch (Exception e) {
@@ -73,6 +76,7 @@ public class EsbUploadImpl implements EsbUpload {
 			e.printStackTrace();
 		}	
 	}
+	
 
 	public int InsertConfigTable(List<Map<String, String>> list) throws Exception {
 		dm_co_ba_cfg_clt configTable = new dm_co_ba_cfg_clt();
@@ -83,12 +87,22 @@ public class EsbUploadImpl implements EsbUpload {
 		esbUpConfig.setMtime(Integer.parseInt(maptimeType.get("mtime")));
 		temp = "ftp://PAS_PUT:W1n3m5s#@10.221.246.84:21/PAS_APP/";
 		String ftpUrl = map.get("ftpUrl") == null ? temp : map.get("ftpUrl");
+		if(flag == true){
 		temp = map.get("id").substring(8, map.get("id").indexOf(".", 10));
+		}else{
+		temp = map.get("id");
+		}
 		String fileName = map.get("fileName") == null ? (temp + "_(.*?).csv") : map.get("fileName");
 		fileName = map.get("gz") == null ? fileName : (fileName + ".gz");
-		esbUpConfig.setUrl(ftpUrl + map.get("id") + "/" + fileName);
+		if(flag == true){
+			esbUpConfig.setUrl(ftpUrl + map.get("id") + "/" + fileName);
+		}else{
+		esbUpConfig.setUrl(ftpUrl + fileName);
+		}
+		if(flag==true){
 		FileOperate fo = new FileOperate(esbUpConfig.getUrl());
 		fo.MakeRemoteDir();
+			}
 		String schema = map.get("schema") == null ? "ipmsdw." : (map.get("schema") + ".");
 		String table = map.get("table") == null ? temp : map.get("table");
 		if (map.get("timeStamp") == null)

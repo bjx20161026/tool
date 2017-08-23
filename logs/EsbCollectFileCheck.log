@@ -1,32 +1,73 @@
-2017-08-04 10:51:53  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
-2017-08-04 10:51:53  [ main:31 ] - [ DEBUG ]  Executing prepared SQL query
-2017-08-04 10:51:53  [ main:33 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+2017-08-17 10:10:33  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:10:33  [ main:96 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:10:33  [ main:97 ] - [ DEBUG ]  Executing prepared SQL statement [select * from ipmsds.META_DT_TASK_RECORD where SOURCE_PATH like ? and receive_time_stamp>sysdate-1/24 and rownum<2]
+2017-08-17 10:10:33  [ main:108 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:10:33  [ main:108 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:10:36  [ main:3496 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.LTE_CSFB_VOICESIMPLE_DAY.LWT_APP%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:10:36  [ main:3585 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:17:07  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:17:07  [ main:24 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:17:07  [ main:26 ] - [ DEBUG ]  Executing prepared SQL statement [select * from ipmsds.META_DT_TASK_RECORD where SOURCE_PATH like ? and receive_time_stamp>sysdate-1/24 and rownum<2]
+2017-08-17 10:17:07  [ main:34 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:17:07  [ main:35 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:17:08  [ main:464 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.LTE_CSFB_VOICESIMPLE_DAY.LWT_APP%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:17:08  [ main:848 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:17:08  [ main:943 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:17:08  [ main:943 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:17:08  [ main:944 ] - [ DEBUG ]  Executing prepared SQL statement [select * from ipmsds.META_PI_TABLE_DETAIL where table_id = (select id from ipmsds.META_PI_TABLE t where table_name like ?)]
+2017-08-17 10:17:08  [ main:944 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:17:08  [ main:944 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:17:08  [ main:1132 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%IPMSDW.O_RE_TE_DT_4G_CSFB_D%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:17:09  [ main:1964 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:35:52  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:35:52  [ main:19 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:35:52  [ main:20 ] - [ DEBUG ]  Executing prepared SQL statement [select * from ipmsds.META_DT_TASK_RECORD where SOURCE_PATH like ? and receive_time_stamp>sysdate-1/24 and rownum<2]
+2017-08-17 10:35:52  [ main:25 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:35:52  [ main:26 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:35:52  [ main:343 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.Video_Result.ACT_APP%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:35:53  [ main:628 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:35:53  [ main:680 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:35:53  [ main:681 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:35:53  [ main:681 ] - [ DEBUG ]  Executing prepared SQL statement [select * from ipmsds.META_PI_TABLE_DETAIL where table_id = (select id from ipmsds.META_PI_TABLE t where table_name like ?)]
+2017-08-17 10:35:53  [ main:682 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:35:53  [ main:682 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:35:53  [ main:835 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%IPMSDW.O_SE_ST_DATA_TEST_PT_VIDEO_H%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:35:53  [ main:880 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:43:32  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:43:32  [ main:18 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:43:32  [ main:19 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
 and receive_time_stamp=(
 select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
 and receive_time_stamp>trunc(sysdate))]
-2017-08-04 10:51:53  [ main:40 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
-2017-08-04 10:51:53  [ main:40 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
-2017-08-04 10:51:54  [ main:618 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
-2017-08-04 10:51:54  [ main:619 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
-2017-08-04 10:52:03  [ main:9595 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
-2017-08-04 11:42:50  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
-2017-08-04 11:42:50  [ main:21 ] - [ DEBUG ]  Executing prepared SQL query
-2017-08-04 11:42:50  [ main:22 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
-2017-08-04 11:42:50  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
-2017-08-04 11:42:50  [ main:28 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
-2017-08-04 11:42:50  [ main:362 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
-2017-08-04 11:42:50  [ main:454 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
-2017-08-04 11:44:03  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
-2017-08-04 11:44:03  [ main:23 ] - [ DEBUG ]  Executing prepared SQL query
-2017-08-04 11:44:03  [ main:24 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
-2017-08-04 11:44:03  [ main:29 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
-2017-08-04 11:44:03  [ main:29 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
-2017-08-04 11:44:03  [ main:355 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
-2017-08-04 11:44:03  [ main:387 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
-2017-08-04 11:44:35  [ main:1 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
-2017-08-04 11:44:35  [ main:17 ] - [ DEBUG ]  Executing prepared SQL query
-2017-08-04 11:44:35  [ main:18 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
-2017-08-04 11:44:35  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
-2017-08-04 11:44:35  [ main:27 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
-2017-08-04 11:44:36  [ main:327 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
-2017-08-04 11:44:36  [ main:372 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:43:32  [ main:25 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:43:32  [ main:25 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:43:33  [ main:361 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%Video_Result20170817101537.txt%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:43:33  [ main:362 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%Video_Result20170817101537.txt%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:43:42  [ main:9769 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:43:42  [ main:9912 ] - [ INFO ]  xml--->><ftpInfo><Type></Type><DataCatalog>DATA.PM.Video_Result.ACT_APP</DataCatalog><WorkMode></WorkMode><SystemID>ACT</SystemID><SessionID></SessionID><MsgSerial></MsgSerial><DeliveryTime>2017-08-17 10:15:37</DeliveryTime><ReadyStatusCode></ReadyStatusCode><ReadyStatusDescription></ReadyStatusDescription><ConnectionString>ftp://10.221.232.136:21</ConnectionString><Path>ACT_APP/DATA.PM.Video_Result.ACT_APP</Path><userName>ACT_PUT</userName><password>W1n3m5s#</password><FileList>Video_Result20170817101537.txt</FileList><files><file><fileName>Video_Result20170817101537.txt</fileName><FileFormat>CSV</FileFormat><CharSet>GBK</CharSet><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>false</IsCompressed><CompressKey></CompressKey><DataInfo></DataInfo><FieldSeparator>|</FieldSeparator><LineSeparator>
+</LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo>
+2017-08-17 10:46:42  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:46:42  [ main:19 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:46:42  [ main:20 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-17 10:46:42  [ main:25 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:46:42  [ main:25 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:46:42  [ main:428 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%Video_Result20170817101537.txt%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:46:42  [ main:429 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%Video_Result20170817101537.txt%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:46:46  [ main:4597 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:46:51  [ main:9417 ] - [ INFO ]  xml--->><ftpInfo><Type></Type><DataCatalog>DATA.PM.Video_Result.ACT_APP</DataCatalog><WorkMode></WorkMode><SystemID>ACT</SystemID><SessionID></SessionID><MsgSerial></MsgSerial><DeliveryTime>2017-08-17 10:15:37</DeliveryTime><ReadyStatusCode></ReadyStatusCode><ReadyStatusDescription></ReadyStatusDescription><ConnectionString>ftp://10.221.232.136:21</ConnectionString><Path>ACT_APP/DATA.PM.Video_Result.ACT_APP</Path><userName>ACT_PUT</userName><password>W1n3m5s#</password><FileList>Video_Result20170817101537.txt</FileList><files><file><fileName>Video_Result20170817101537.txt</fileName><FileFormat>CSV</FileFormat><CharSet>GBK</CharSet><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>false</IsCompressed><CompressKey></CompressKey><DataInfo></DataInfo><FieldSeparator>|</FieldSeparator><LineSeparator>
+</LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo>
+2017-08-17 10:59:03  [ main:1 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-17 10:59:03  [ main:20 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-17 10:59:03  [ main:21 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-17 10:59:03  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-17 10:59:03  [ main:28 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-17 10:59:04  [ main:349 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.ZXDNA_CMCC_3G_02.ZXDNA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:59:04  [ main:350 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%DATA.PM.ZXDNA_CMCC_3G_02.ZXDNA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-17 10:59:11  [ main:7369 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-17 10:59:11  [ main:7418 ] - [ INFO ]  xml--->><fileInfo><ftpInfo><Type>update</Type><DataCatalog>11AAFA96F4412C47</DataCatalog><WorkMode>sync</WorkMode><SystemID>ZXDNA_APP</SystemID><SessionID>20170817_75480977645</SessionID><MsgSerial></MsgSerial><DeliveryTime>2017-08-17 10:58:40</DeliveryTime><ReadyStatusCode>1</ReadyStatusCode><ConnectionString>ftp://ZXDNA_PUT:W1n3m5s#@10.221.232.136:21</ConnectionString><Path>/ZXDNA_APP//DATA.PM.ZXDNA_CMCC_3G_02.ZXDNA_APP</Path><userName>ZXDNA_PUT</userName><password>W1n3m5s#</password><FileList>QuartRingSys_201708170945-201708171000.csv</FileList><files><file><fileName>QuartRingSys_201708170945-201708171000.csv</fileName><FileFormat>csv</FileFormat><FileSize>891474</FileSize><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>false</IsCompressed><CompressKey></CompressKey><CharSet>GB2312</CharSet><DataInfo></DataInfo><FieldSeparator>,</FieldSeparator><LineSeparator>\n</LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo></fileInfo>

@@ -77,11 +77,9 @@ public class FileTools {
 	}
 	
 	public static void main(String[] args){
-		try {
-			FileTools.CtreatFile("F:/justTest/asdf.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Properties pro = getProperties("EsbUpload.properties");
+		for(Object object:pro.keySet()){
+			System.out.println(object.toString());
 		}
 	}
 }

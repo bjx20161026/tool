@@ -1,0 +1,32 @@
+2017-08-04 10:51:53  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-04 10:51:53  [ main:31 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-04 10:51:53  [ main:33 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-04 10:51:53  [ main:40 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-04 10:51:53  [ main:40 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-04 10:51:54  [ main:618 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-04 10:51:54  [ main:619 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP%], value class [java.lang.String], SQL type unknown
+2017-08-04 10:52:03  [ main:9595 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-04 11:42:50  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-04 11:42:50  [ main:21 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-04 11:42:50  [ main:22 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
+2017-08-04 11:42:50  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-04 11:42:50  [ main:28 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-04 11:42:50  [ main:362 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
+2017-08-04 11:42:50  [ main:454 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-04 11:44:03  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-04 11:44:03  [ main:23 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-04 11:44:03  [ main:24 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
+2017-08-04 11:44:03  [ main:29 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-04 11:44:03  [ main:29 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-04 11:44:03  [ main:355 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
+2017-08-04 11:44:03  [ main:387 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-04 11:44:35  [ main:1 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-04 11:44:35  [ main:17 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-04 11:44:35  [ main:18 ] - [ DEBUG ]  Executing prepared SQL statement [select PARSE_RULE,TABLE_NAME from  ipmsds.META_PI_FILE_SOURCE t where SERVICE_CODE like ?]
+2017-08-04 11:44:35  [ main:27 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-04 11:44:35  [ main:27 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-04 11:44:36  [ main:327 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.NHM_CPU_MEM_KPI.GCP_APP%], value class [java.lang.String], SQL type unknown
+2017-08-04 11:44:36  [ main:372 ] - [ DEBUG ]  Returning JDBC Connection to DataSource

@@ -5,6 +5,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
 
+import org.dom4j.DocumentException;
+
+import com.dao.MetaDtMsgRecord;
+import com.service.download.ParseMsgXml;
+
 import util.common.PostfixTool;
 import util.ftp.FileOperate;
 import util.ftp.FtpFileObject;
@@ -71,12 +76,23 @@ public class RemoteBigFile {
 	public void setCharset(String charset) {
 		this.charset = charset;
 	}
+	
+	public String Read(String protocol) throws Exception{
+		MetaDtMsgRecord dealMetaDtMsgRecord = new MetaDtMsgRecord();
+		String msg = dealMetaDtMsgRecord.GetMsg(protocol);
+		ParseMsgXml parseMsgXml = new ParseMsgXml();
+		String ftpUrl=parseMsgXml.GetFtpInfo(msg);
+		setCharset(parseMsgXml.getCharset());
+		return ReadRemoteBigFile(ftpUrl);
+	}
 
 	public static void main(String[] args) throws Exception {
 		RemoteBigFile remoteBigFile = new RemoteBigFile();
-		remoteBigFile.setEndLine(10);
+		remoteBigFile.setStartLine(100000);
+		remoteBigFile.setEndLine(100010);
+		remoteBigFile.setCharset("gbk");
 		// System.out.println(remoteBigFile.ReadRemoteBigFile("ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170808000000.csv.gz"));
 		System.out.println(remoteBigFile.ReadRemoteBigFile(
-				"ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170810000000.csv.gz"));
+				"ftp://LWT_PUT:W1n3m5s#@10.221.232.135:21//LWT_APP/DATA.PM.LTE_CSFB_VOICESIMPLE_DAY.LWT_APP/LTE_CSFB_VOICESIMPLE_DAY_20170814.csv"));
 	}
 }

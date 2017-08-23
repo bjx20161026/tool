@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.zip.GZIPInputStream;
+
+import util.common.PostfixTool;
 
 public class BigFile {
 	public int startLine = 0;
@@ -37,6 +40,9 @@ public class BigFile {
 	public String ReadBigFile(String filePath) throws Exception{
 		File file = new File(filePath);
 		InputStream is = new FileInputStream(file);
+		if (PostfixTool.getPostfix(filePath).equals("gz")) {
+			is = new GZIPInputStream(is);
+		}
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(new InputStreamReader(is,charset));
 		for(int i=0;i<startLine;i++){

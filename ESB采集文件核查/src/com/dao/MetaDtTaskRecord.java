@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,6 +8,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class MetaDtTaskRecord {
 	JdbcTemplate jdbcTemplate;
 	String getDatFileNamesql;
+	String getCountDaysql;
+	
+	public List<Map<String,Object>> GetCountDay(){
+		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
+		jdbcTemplate = getJdbcTemplate.getIpmsdm();
+		getCountDaysql = getJdbcTemplate.getPrepareSql("MetaDtTaskRecord.getCountDaysql");
+		return jdbcTemplate.queryForList(getCountDaysql);
+	}
+	
 	public Map<String,Object> GetDateFileName(String protocol){
 		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
 		jdbcTemplate = getJdbcTemplate.getIpmsdm();
@@ -25,11 +35,4 @@ public class MetaDtTaskRecord {
 	public void setGetDatFileNamesql(String getDatFileNamesql) {
 		this.getDatFileNamesql = getDatFileNamesql;
 	}
-	
-	public static void main(String[] args){
-		MetaDtTaskRecord metaDtTaskRecord = new MetaDtTaskRecord();
-
-	}
-
-
 }

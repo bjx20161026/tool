@@ -44,6 +44,7 @@ public class DateTools {
 		return simpleFormat;
 	}
 
+	@SuppressWarnings("static-access")
 	public void setSimpleFormat(SimpleDateFormat simpleFormat) {
 		this.simpleFormat = simpleFormat;
 	}

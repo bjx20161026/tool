@@ -67,14 +67,14 @@ public class FastCollectImpl implements FastCollect {
 		// TODO Auto-generated method stub
 		dm_co_ba_cfg_task_mng taskTable = new dm_co_ba_cfg_task_mng();
 		map = list.get(1);
-		taskTable.setID("HG-" + "rclt-"+map.get("id"));
+		taskTable.setID("HG-" + "FTP-"+map.get("id"));
 		Map<String, String> maptimeType = timeTypeTransfer(map.get("timeType"));
 		taskTable.setTIMETYPE(maptimeType.get("timetype"));
 		taskTable.setTIMEINVOKEPOINT(maptimeType.get("timeinvokepoint"));
 		taskTable.setTIMEPOINT(maptimeType.get("timepoint"));
 		taskTable.setENABLED((short) 1);
 		taskTable.setPRIORITY((short) 0);
-		taskTable.setSUBID("collect://" + "rclt-"+map.get("id"));
+		taskTable.setSUBID("collect://" + "FTP-"+map.get("id"));
 		taskTable.setSERVER_IP(map.get("serverIp") == null ? "10.221.18.29" : map.get("serverIp"));
 		return taskTableDao.insert(taskTable);
 	}
@@ -92,9 +92,9 @@ public class FastCollectImpl implements FastCollect {
 		// TODO Auto-generated method stub
 		dm_co_ba_cfg_clt configTable = new dm_co_ba_cfg_clt();
 		map = list.get(1);
-		configTable.setID("rclt-"+map.get("id"));
+		configTable.setID("FTP-"+map.get("id"));
 		configTable.setTYPE("0");
-		fastCollectConfig.setId("id");
+		fastCollectConfig.setId(configTable.getID());
 		fastCollectConfig.setUrl(map.get("url"));
 	    String schema = map.get("schema") == null ? "ipmsdw." : (map.get("schema") + ".");
 		fastCollectConfig.setMaxTimeSql(String.format("select nvl(max(%s),trunc(sysdate-3)) from %s%s", map.get("timeStamp"),schema,map.get("table")));

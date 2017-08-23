@@ -1,5 +1,10 @@
 package com.control;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -18,10 +23,29 @@ public class EsbUploadController {
 	@Autowired
 	EsbUpload esbUpload;
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public @ResponseBody String Test() {
+	public @ResponseBody List<Map<String,Object>> Test() {
 		logger.info("test");
-		return "这是一个测试的首页，会不断地进行丰富<br>"
-				+ "abcs";
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("name", "总量");
+		List<Integer> ls = new ArrayList<Integer>();
+		ls.add(7989);
+		ls.add(7988);
+		ls.add(7900);
+		ls.add(7989);
+		
+		ls.add(7900);
+		ls.add(7900);
+		ls.add(7900);
+		ls.add(7989);
+		
+		ls.add(7900);
+		ls.add(7985);
+		ls.add(7989);
+		ls.add(7988);
+		map.put("data", ls);
+		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		list.add(map);
+		return list;
 	}
 	
 	@RequestMapping(value = "/CreatUploadConfig", method = RequestMethod.GET)

@@ -10,6 +10,16 @@ import util.common.RegularTool;
 
 public class ParseMsgXml {
 	Logger logger = Logger.getLogger(ParseMsgXml.class);
+	
+	public String charset;
+
+	public String getCharset() {
+		return charset;
+	}
+
+	public void setCharset(String charset) {
+		this.charset = charset;
+	}
 
 	public String GetFtpInfo(String xml) throws DocumentException{
 		String ftpUrl = "";
@@ -30,11 +40,13 @@ public class ParseMsgXml {
 		Element files = ftpInfo.element("files");
 		Element file = files.element("file");
 		Element FileName = file.element("fileName");
+		Element CharSet = file.element("CharSet");
 		String connection = ConnectionString.getTextTrim();
 		String path = Path.getTextTrim();
 		String userName = UserName.getTextTrim();
 		String password = Password.getTextTrim();
 		String fileName = FileName.getTextTrim();
+		setCharset(CharSet.getTextTrim());
 		if(path.endsWith("/")){
 			path = path.substring(0,path.length()-1);
 		}
@@ -52,15 +64,6 @@ public class ParseMsgXml {
 	}
 	
 	public static void main(String[] args){
-//		ParseMsgXml getFtpInfo = new ParseMsgXml();
-////		String xml = "<fileInfo><ftpInfo><Type>update</Type><DataCatalog>NHM-CPU-MEM-KPI</DataCatalog><WorkMode>sync</WorkMode><SystemID>GCNI</SystemID><SessionID>20170803_11501737221</SessionID><MsgSerial>1501746916528</MsgSerial><DeliveryTime>2017-08-03 15:55:16</DeliveryTime><ReadyStatusCode>1</ReadyStatusCode><ConnectionString>ftp://GCP_PUT:W1n3m5s#@10.221.232.135:21</ConnectionString><Path>GCP_APP/DATA.PM.NHM_CPU_MEM_KPI.GCP_APP</Path><userName>GCP_PUT</userName><password>W1n3m5s#</password><FileList>D_ASIA_DB_RADIUS-SYS_PM_NHM-CPU-MEM-KPI_001_5_20170803-1550P0.xml.gz</FileList><files><file><fileName>D_ASIA_DB_RADIUS-SYS_PM_NHM-CPU-MEM-KPI_001_5_20170803-1550P0.xml.gz</fileName><FileFormat>xml.gz</FileFormat><FileSize>0</FileSize><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>true</IsCompressed><CompressKey></CompressKey><CharSet>utf-8</CharSet><DataInfo></DataInfo><FieldSeparator></FieldSeparator><LineSeparator></LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo></fileInfo>";
-//		String xml = "<ftpInfo><Type>UPDATE</Type><DataCatalog></DataCatalog><WorkMode></WorkMode><SystemID></SystemID><SessionID></SessionID><MsgSerial></MsgSerial><DeliveryTime>2017-08-03 11:19:59</DeliveryTime><ReadyStatusCode></ReadyStatusCode><ReadyStatusDescription></ReadyStatusDescription><ConnectionString>10.221.232.135:21</ConnectionString><Path>/NETVISTA_APP/DATA.PM.CMNETWANGLUOZHILIANG.NETVISTA_APP/</Path><userName>NETVISTA_PUT</userName><password>W1n3m5s#</password><FileList>CMNETwangluozhiliang-20170803-111000.csv</FileList><files><file><fileName>CMNETwangluozhiliang-20170803-111000.csv</fileName><FileFormat>csv</FileFormat><FileSize></FileSize><IsEncryption></IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>false</IsCompressed><CompressKey></CompressKey><DataInfo></DataInfo><FieldSeparator>,</FieldSeparator><LineSeparator></LineSeparator><XmlSchema>XmlSchema</XmlSchema><CharSet>GBK</CharSet><FileCheckInfo></FileCheckInfo></file></files></ftpInfo>";
-//		try {
-//			System.out.println(getFtpInfo.GetFtpInfo(xml));)
-//		} catch (DocumentException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		boolean is = RegularTool.isMatcher("ftp://GCP_PUT:W1n3m5s#@10.221.232.137:21", "ftp://(.*?):(.*?)@(\\d+\\.\\d+\\.\\d+\\.\\d+):21");
 	    System.out.println(is);
 	    String abc = RegularTool.MatcherValue("ftp://GCP_PUT:W1n3m5s#@10.221.232.137:21",".*?(\\d+\\.\\d+\\.\\d+\\.\\d+:21)");

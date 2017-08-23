@@ -1,0 +1,61 @@
+2017-08-16 10:56:59  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-16 10:56:59  [ main:81 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-16 10:56:59  [ main:82 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-16 10:56:59  [ main:90 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-16 10:56:59  [ main:91 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-16 10:57:02  [ main:2647 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%DATA.PM.Video_Result.ACT_APP%], value class [java.lang.String], SQL type unknown
+2017-08-16 10:57:02  [ main:2651 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%DATA.PM.Video_Result.ACT_APP%], value class [java.lang.String], SQL type unknown
+2017-08-16 10:57:07  [ main:7581 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-16 10:57:07  [ main:7696 ] - [ INFO ]  xml--->><ftpInfo><Type></Type><DataCatalog>DATA.PM.Video_Result.ACT_APP</DataCatalog><WorkMode></WorkMode><SystemID>ACT</SystemID><SessionID></SessionID><MsgSerial></MsgSerial><DeliveryTime>2017-08-16 10:15:27</DeliveryTime><ReadyStatusCode></ReadyStatusCode><ReadyStatusDescription></ReadyStatusDescription><ConnectionString>ftp://10.221.232.136:21</ConnectionString><Path>ACT_APP/DATA.PM.Video_Result.ACT_APP</Path><userName>ACT_PUT</userName><password>W1n3m5s#</password><FileList>Video_Result20170816101527.txt</FileList><files><file><fileName>Video_Result20170816101527.txt</fileName><FileFormat>CSV</FileFormat><CharSet>GBK</CharSet><IsEncryption>false</IsEncryption><CipherKey></CipherKey><CipherFile></CipherFile><IsCompressed>false</IsCompressed><CompressKey></CompressKey><DataInfo></DataInfo><FieldSeparator>|</FieldSeparator><LineSeparator>
+</LineSeparator><XmlSchema></XmlSchema><FileCheckInfo></FileCheckInfo></file></files></ftpInfo>
+2017-08-16 17:32:12  [ main:0 ] - [ INFO ]  Loaded JDBC driver: oracle.jdbc.driver.OracleDriver
+2017-08-16 17:32:12  [ main:106 ] - [ DEBUG ]  Executing prepared SQL query
+2017-08-16 17:32:12  [ main:107 ] - [ DEBUG ]  Executing prepared SQL statement [select MSG_CONTENT from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp=(
+select max(receive_time_stamp) from ipmsds.META_DT_MSG_RECORD t where msg_content like ?
+and receive_time_stamp>trunc(sysdate))]
+2017-08-16 17:32:12  [ main:113 ] - [ DEBUG ]  Fetching JDBC Connection from DataSource
+2017-08-16 17:32:12  [ main:114 ] - [ DEBUG ]  Creating new JDBC DriverManager Connection to [jdbc:oracle:thin:@10.221.247.47:1521/ipms]
+2017-08-16 17:32:13  [ main:674 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 1, parameter value [%LTE_CSFB_VOICESIMPLE_DAY_20170814.csv%], value class [java.lang.String], SQL type unknown
+2017-08-16 17:32:13  [ main:678 ] - [ DEBUG ]  Setting SQL statement parameter value: column index 2, parameter value [%LTE_CSFB_VOICESIMPLE_DAY_20170814.csv%], value class [java.lang.String], SQL type unknown
+2017-08-16 17:32:33  [ main:20665 ] - [ DEBUG ]  Returning JDBC Connection to DataSource
+2017-08-16 17:32:33  [ main:20722 ] - [ INFO ]  xml--->>
+        <fileInfo>
+  <ftpInfo>
+    <Type></Type>
+    <DataCatalog></DataCatalog>
+    <WorkMode></WorkMode>
+    <SystemID></SystemID>
+    <SessionID></SessionID>
+    <MsgSerial></MsgSerial>
+    <DeliveryTime>2017-08-16 10:21:46</DeliveryTime>
+    <ReadyStatusCode></ReadyStatusCode>
+    <ConnectionString>ftp://10.221.232.135:21</ConnectionString>
+    <Path>/LWT_APP/DATA.PM.LTE_CSFB_VOICESIMPLE_DAY.LWT_APP</Path>
+    <userName>LWT_PUT</userName>
+    <password>W1n3m5s#</password>
+    <FileList>LTE_CSFB_VOICESIMPLE_DAY_20170814.csv</FileList>
+    <files>
+      <file>
+        <fileName>LTE_CSFB_VOICESIMPLE_DAY_20170814.csv</fileName>
+        <FileFormat>csv</FileFormat>
+        <FileSize>73481823</FileSize>
+        <IsEncryption></IsEncryption>
+        <CipherKey></CipherKey>
+        <CipherFile></CipherFile>
+        <IsCompressed></IsCompressed>
+        <CompressKey></CompressKey>
+        <CharSet>gbk</CharSet>
+        <DataInfo></DataInfo>
+        <FieldSeparator>,</FieldSeparator>
+        <LineSeparator></LineSeparator>
+        <XmlSchema></XmlSchema>
+        <FileCheckInfo></FileCheckInfo>
+      </file>
+    </files>
+  </ftpInfo>
+</fileInfo>
+      
