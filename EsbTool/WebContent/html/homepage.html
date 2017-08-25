@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>HomePage</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script language="Javascript" type="text/javascript" src="../js/edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+getCookie('esbTool');
+function getCookie(name)
+{
+var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+if(arr=document.cookie.match(reg)){
+}
+else{
+	alert("请先登录");
+	window.location.href="../index.html";
+}
+
+}
+</script>
+<nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+	<div class="container-fluid"> 
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" 
+					data-target=".bs-js-navbar-scrollspy">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">工具</a>
+		</div>
+		<div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+			<ul class="nav navbar-nav">
+				<li><a href="#esbshare">ESB共享</a></li>
+				<li><a href="#svn">FTP采集</a></li>
+				<li><a href="#svn">部省上传</a></li>
+                <li><a href="http://10.221.247.7:1202/master/server" target="_blank">服务监控</a></li>
+				<li class="dropdown">
+					<a href="#" id="navbarDrop1" class="dropdown-toggle" 
+					   data-toggle="dropdown">ESB采集
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" role="menu" 
+						aria-labelledby="navbarDrop1">
+						<li><a href="#openbigfile" tabindex="-1">打开大文件</a></li>
+						<li><a href="remoteFile.html" target="_blank" tabindex="-1">打开远程文件</a></li>
+						<li><a href="#downloadfile" tabindex="-1">下载文件</a></li>
+<!-- 						<li class="divider"></li> -->
+						<li><a href="#spring" tabindex="-1">入库文件校验</a></li>
+						<li><a href="#messagecount" tabindex="-1">ESB消息统计</a></li>
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div> 
+</nav>
+<div data-spy="scroll" data-target="#navbar-example" data-offset="0" 
+	 style="height:500px;overflow:auto; position: relative;">
+	 <h3 id="esbshare">ESB共享</h3>
+	<p>ESB共享将文件通过esb的方式分发给客户</br>
+	  <h4><a href="#">esb共享配置</a></h4> 
+	    	 <h5><a href="esbShareCount.html" target="_blank">ESB共享文件数</a></h5> 
+	</p>
+	<hr>
+	 <h3 id="esbcollect">ESB采集</h3>
+	 <h4 id="openbigfile">打开大文件</h4>
+	 	<label for="inputfile">打开本地大文件</label>
+		<table>
+			<tr>
+			    <th>文件路径</th>
+				<th>：</th>
+				<td><input id="inputfile"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>起始行数</th>
+				<th>：</th>
+				<td><input id="startline" value="0"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>结束行数</th>
+				<th>：</th>
+				<td><input id="endline" value="10"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>编码格式</th>
+				<th>：</th>
+				<td><input id="charset" value="utf-8"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+			</tr>
+         </table><br>
+		<button onclick="openlocal()">确认打开</button>
+	 </p><br>
+	 <p id="openlocal">
+	 <script type="text/javascript">
+	   function openlocal(){
+		   var path = document.getElementById("inputfile").value;
+		   path = escape(path); 
+		   var startline = document.getElementById("startline").value;
+		   var endline = document.getElementById("endline").value;
+		   var charset = document.getElementById("charset").value;
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json",   
+	               url:"http://localhost:9180/EsbTool/rest/dealFile/local?startLine="+startline+"&endLine="+endline+"&charset="+charset+"&path="+path, 
+	               success:function(result){ 
+	                   if(result!=null){
+	                      document.getElementById("openlocal").innerHTML=result;
+	                       return result;          
+	                   } 
+	               } 
+	         }); 
+	   } 
+	   </script>
+	 </p><br>
+	      <p>
+	 <h4 id="downloadfile">下载文件</h4>
+	 <p><table>
+			<tr>
+				<th>规约或文件名</th>
+				<th>：</th>
+				<td><input id="downloadprotocol"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>消息时间</th>
+				<th>：</th>
+				<td><input id="downloadday" value="1"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th><button onclick="download()">下载</button></th>
+			</tr>
+		</table>
+	 </p>
+	 <script type="text/javascript">
+	   function download(){ 
+		   var downloadprotocol = document.getElementById("downloadprotocol").value;
+	       var downloadday = document.getElementById("downloadday").value;
+	       var url = "http://localhost:9180/EsbTool/rest/dealFile/download?method=DownLoad&protocol="+downloadprotocol+"&day="+downloadday;
+	       window.location.href=url;
+	   } 
+	   </script>
+	 </p><br>
+	 <h4 id="messagecount">ESB消息统计</h4>
+	 <h5><a href="esbcollectcount.html" target="_blank">一周接收ESB消息数</a></h5> 
+	 <hr>
+</div>
+
+</body>
+</html>

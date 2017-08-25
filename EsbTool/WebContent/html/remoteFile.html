@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>打开esb采集文件</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script language="Javascript" type="text/javascript" src="../js/edit_area/edit_area_full.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+getCookie('esbTool');
+function getCookie(name)
+{
+var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+if(arr=document.cookie.match(reg)){
+}
+else{
+	alert("请先登录");
+	window.location.href="../index.html";
+}
+
+}
+</script>
+      <p>
+      <h1>打开ESB采集文件</h1>
+                            可以通过输入esb规约或文件名进行查找，程序通过查询esb消息记录自动获取文件ftp信息，这需要花费一些时间。  当有多条记录时，程序会选择消息时间最新的一条记录                    
+          <br><br>
+		<table>
+			<tr>
+			    <th>文件名或规约</th>
+				<th>：</th>
+				<td><input id="rprotocol"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>起始行数</th>
+				<th>：</th>
+				<td><input id="rstartliner" value="0"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>结束行数</th>
+				<th>：</th>
+				<td><input id="rendline" value="30"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>消息时间</th>
+				<th>：</th>
+				<td><input id="rday" value="1"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<td><button onclick="openremote()">确认打开</button></td>
+			</tr>
+         </table>
+	 </p>
+	 <p id="openremote">
+	 <script type="text/javascript">
+	   function openremote(){
+		   var protocol = document.getElementById("rprotocol").value;
+		   var startline = document.getElementById("rstartliner").value;
+		   var endline = document.getElementById("rendline").value;
+		   var day = document.getElementById("rday").value;
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json",   
+	               url:"http://localhost:9180/EsbTool/rest/dealFile/remote?startLine="+startline+"&endLine="+endline+"&protocol="+protocol+"&day="+day, 
+	               success:function(result){ 
+	                   if(result!=null){
+		                  alert("处理完成！")
+	                    //  document.getElementById("openremoteout").value=result;
+		                  editAreaLoader.setValue("openremoteout", result);
+	                   } 
+	               } 
+	         }); 
+	   } 
+	 	editAreaLoader.init({
+			id: "openremoteout"	// id of the textarea to transform		
+			,start_highlight: true	// if start with highlight
+			,allow_resize: "both"
+			,allow_toggle: true
+			,word_wrap: true
+			,language: "en"
+			,syntax: "html"	
+		});
+	   </script>
+	   <textarea id="openremoteout" rows="30" style="width:100%">
+       </textarea>
+	 </p>
+</body>
+</html>

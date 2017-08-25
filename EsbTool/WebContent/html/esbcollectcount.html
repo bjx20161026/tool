@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>esb采集统计</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 825px; height: 600px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {   
+   var title = {
+      text: '每天接收esb消息数'   
+   };
+   var subtitle = {
+      text: 'ipmsds.meta_dt_task_record'
+   };
+   var xAxis;
+   function DayXAxis(){ 
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json", 
+	               url:"http://localhost:9180/EsbTool/rest/MessageCount/dayXAxis", 
+	               success:function(result){ 
+	                   if(result!=null){
+	                       xAxis=result;
+	                       return result;          
+	                   } 
+	               } 
+	         }); 
+	   } 
+	   DayXAxis();
+   var yAxis = {
+      title: {
+         text: '数量(个)'
+      }
+   };
+   var plotOptions = {
+      line: {
+         dataLabels: {
+            enabled: true
+         },   
+         enableMouseTracking: true
+      }
+   };
+   var series;
+   function DaySeries(){ 
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json", 
+	               url:"http://localhost:9180/EsbTool/rest/MessageCount/daySeries", 
+	               success:function(result){ 
+	                   if(result!=null){ 
+	                       series=result;
+	                       return result;          
+	                   } 
+	               } 
+	         }); 
+	   } 
+	   DaySeries();
+   
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);
+  
+});
+</script>
+</body>
+</html>

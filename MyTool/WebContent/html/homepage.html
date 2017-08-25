@@ -7,6 +7,7 @@
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script language="Javascript" type="text/javascript" src="../js/edit_area/edit_area_full.js"></script>
 </head>
 <body>
 <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
@@ -35,6 +36,7 @@
 					<ul class="dropdown-menu" role="menu" 
 						aria-labelledby="navbarDrop1">
 						<li><a href="#openbigfile" tabindex="-1">打开大文件</a></li>
+						<li><a href="remoteFile.html" target="_blank" tabindex="-1">打开远程文件</a></li>
 						<li><a href="#downloadfile" tabindex="-1">下载文件</a></li>
 <!-- 						<li class="divider"></li> -->
 						<li><a href="#spring" tabindex="-1">入库文件校验</a></li>
@@ -103,46 +105,6 @@
 	   </script>
 	 </p><br>
 	      <p>
-	 	<label for="rinputfile">打开ESB采集文件</label>
-		<table>
-			<tr>
-			    <th>文件名或规约</th>
-				<th>：</th>
-				<td><input id="rprotocol"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>起始行数</th>
-				<th>：</th>
-				<td><input id="rstartliner" value="0"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>结束行数</th>
-				<th>：</th>
-				<td><input id="rendline" value="10"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-			</tr>
-         </table><br>
-		<button onclick="openremote()">确认打开</button>
-	 </p><br>
-	 <p id="openremote">
-	 <script type="text/javascript">
-	   function openremote(){
-		   var protocol = document.getElementById("rprotocol").value;
-		   var startline = document.getElementById("rstartliner").value;
-		   var endline = document.getElementById("rendline").value;
-	       $.ajax({ 
-	               async:false,
-	               type:"get", 
-	               contentType:"application/json",   
-	               url:"http://localhost:9180/ESBCollectFileCheck/rest/dealFile/remote?startLine="+startline+"&endLine="+endline+"&protocol="+protocol, 
-	               success:function(result){ 
-	                   if(result!=null){
-	                      document.getElementById("openremote").innerHTML=result;
-	                       return result;          
-	                   } 
-	               } 
-	         }); 
-	   } 
-	   </script>
-	 </p>
 	 <h4 id="downloadfile">下载文件</h4>
 	 <p><table>
 			<tr>

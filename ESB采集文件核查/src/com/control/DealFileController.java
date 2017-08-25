@@ -3,7 +3,6 @@ package com.control;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
@@ -32,7 +31,7 @@ public class DealFileController {
 	@Path("/remote")
 	public Response RemoteFile(@Context HttpServletRequest request) throws Exception{
 		RemoteBigFile remoteBigFile = new RemoteBigFile();
-		String protocol = request.getParameter("protocol");
+		String protocol = request.getParameter("protocol").trim();
 		int startLine = Integer.parseInt(request.getParameter("startLine"));
 		int endLine = Integer.parseInt(request.getParameter("endLine"));
 		remoteBigFile.setStartLine(startLine);
