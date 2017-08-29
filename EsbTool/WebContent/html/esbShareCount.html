@@ -2,8 +2,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>FastCollect处理统计</title>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/highcharts.js"></script>
 </head>
 <body>
 <div id="container" style="width: 825px; height: 600px; margin: 0 auto"></div>
@@ -21,7 +21,7 @@ $(document).ready(function() {
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json", 
-	               url:"http://localhost:9180/EsbTool/rest/MessageCount/shareXAxis", 
+	               url:"http://10.221.18.29:8080/EsbTool/rest/MessageCount/shareXAxis", 
 	               success:function(result){ 
 	                   if(result!=null){
 	                       xAxis=result;
@@ -51,7 +51,7 @@ $(document).ready(function() {
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json", 
-	               url:"http://localhost:9180/EsbTool/rest/MessageCount/shareSeries", 
+	               url:"http://10.221.18.29:8080/EsbTool/rest/MessageCount/shareSeries", 
 	               success:function(result){ 
 	                   if(result!=null){ 
 	                       series=result;

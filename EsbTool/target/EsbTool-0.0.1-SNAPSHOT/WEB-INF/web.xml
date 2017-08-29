@@ -18,6 +18,9 @@
 	<listener>
 		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
 	</listener>
+	<listener>
+	<listener-class>com.service.login.Initliza</listener-class>	
+	</listener>
 	<servlet>
 		<servlet-name>resteasy-servlet</servlet-name>
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>

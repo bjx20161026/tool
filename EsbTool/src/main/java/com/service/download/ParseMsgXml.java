@@ -46,7 +46,12 @@ public class ParseMsgXml {
 		String userName = UserName.getTextTrim();
 		String password = Password.getTextTrim();
 		String fileName = FileName.getTextTrim();
+		String connectionA;
+		if(CharSet!=null){
 		setCharset(CharSet.getTextTrim());
+		}else{
+			setCharset("gbk");
+		}
 		if(path.endsWith("/")){
 			path = path.substring(0,path.length()-1);
 		}
@@ -55,10 +60,13 @@ public class ParseMsgXml {
 		}
 		if(RegularTool.isMatcher(connection, "ftp://(.*?):(.*?)@(\\d+\\.\\d+\\.\\d+\\.\\d+):21")){
 			ftpUrl = connection+"/"+path+"/"+fileName;
-		}else{
-			connection = RegularTool.MatcherValue(connection,".*?(\\d+\\.\\d+\\.\\d+\\.\\d+:21)");
+		}else if((connectionA = RegularTool.MatcherValue(connection,".*?(\\d+\\.\\d+\\.\\d+\\.\\d+:21)"))!=null){
 			String format = "ftp://%s:%s@%s/%s/%s";
-			ftpUrl = String.format(format, userName,password,connection,path,fileName);
+			ftpUrl = String.format(format, userName,password,connectionA,path,fileName);
+		}else{
+			connectionA = RegularTool.MatcherValue(connection,".*?(\\d+\\.\\d+\\.\\d+\\.\\d+)");
+			String format = "ftp://%s:%s@%s:21/%s/%s";
+			ftpUrl = String.format(format, userName,password,connectionA,path,fileName);
 		}
 		return ftpUrl;
 	}
@@ -66,7 +74,7 @@ public class ParseMsgXml {
 	public static void main(String[] args){
 		boolean is = RegularTool.isMatcher("ftp://GCP_PUT:W1n3m5s#@10.221.232.137:21", "ftp://(.*?):(.*?)@(\\d+\\.\\d+\\.\\d+\\.\\d+):21");
 	    System.out.println(is);
-	    String abc = RegularTool.MatcherValue("ftp://GCP_PUT:W1n3m5s#@10.221.232.137:21",".*?(\\d+\\.\\d+\\.\\d+\\.\\d+:21)");
+	    String abc = RegularTool.MatcherValue("ftp://GCP_PUT:W1n3m5s#@10.221.232.137",".*?(\\d+\\.\\d+\\.\\d+\\.\\d+)");
 	    System.out.println("abc--->>>"+abc);
 	}
 }

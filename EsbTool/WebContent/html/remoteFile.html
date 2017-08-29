@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>打开esb采集文件</title>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script language="Javascript" type="text/javascript" src="../js/edit_area/edit_area_full.js"></script>
 </head>
 <body>
@@ -57,7 +57,7 @@ else{
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json",   
-	               url:"http://localhost:9180/EsbTool/rest/dealFile/remote?startLine="+startline+"&endLine="+endline+"&protocol="+protocol+"&day="+day, 
+	               url:"http://10.221.18.29:8080/EsbTool/rest/dealFile/remote?startLine="+startline+"&endLine="+endline+"&protocol="+protocol+"&day="+day, 
 	               success:function(result){ 
 	                   if(result!=null){
 		                  alert("处理完成！")
