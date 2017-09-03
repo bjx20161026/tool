@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>HomePage</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>	
+</head>
+
+<body>
+
+<button onclick="openA()">打开</button>
+<br><br><br>
+<script type="text/javascript">
+var data;
+function openA(){
+	ShareXAxis();
+	alert(data);
+	 $('#example').DataTable( {
+	    data: data,
+	    columns: [
+			{ data: 'CALL_RESULT' },
+			{ data: 'SEND_TIME_STAMP' },
+			{ data: 'ESB_MSG' },
+	    ]
+	});
+}
+function ShareXAxis(){ 
+	       $.ajax({ 
+	               async:false,
+	               type:"get", 
+	               contentType:"application/json", 
+	               url:"http://localhost:8080/EsbTool/rest/EsbSend/getMsg", 
+	               success:function(result){ 
+	                   if(result!=null){
+	                       data=result;       
+	                   } 
+	               } 
+	         }); 
+	   } 
+</script>
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<thead>
+            <tr>
+                <th>CALL_RESULT</th>
+                <th>SEND_TIME_STAMP</th>
+                <th>ESB_MSG</th>
+            </tr>
+        </thead>
+</table>
+</body>
+</html>
