@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import com.dao.MetaDtMsgRecord;
+import com.dao.MetaDtMsgSendRecord;
 
 import util.common.FileTools;
 import util.common.MyDate;
@@ -37,6 +38,14 @@ public class FileDownLoad {
 		String msg = dealMetaDtMsgRecord.GetMsg(protocol,day);
 		ParseMsgXml parseMsgXml = new ParseMsgXml();
 		String ftpUrl=parseMsgXml.GetFtpInfo(msg);
+		return FtpFile(ftpUrl);
+	}
+	
+	public ByteArrayOutputStream DownLoadById(String id) throws Exception{
+		MetaDtMsgSendRecord metaDtMsgSendRecord = new MetaDtMsgSendRecord();
+		String msg = metaDtMsgSendRecord.getMsg(id);
+		ParseMsgXml parseMsgXml = new ParseMsgXml();
+		String ftpUrl=parseMsgXml.GetFtpInfoForSend(msg);
 		return FtpFile(ftpUrl);
 	}
 	

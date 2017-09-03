@@ -24,12 +24,10 @@ public class temp {
 				jdbcTemplate.update(sql,str,i,str,i,str,i,str,i,str,i);
 				System.out.println("i--->>>"+i);
 			}
-		
 	}
 	
 	public String getPrepareSql(String key){
 		Properties properties = FileTools.getProperties("PrepareSql.properties");
 		return properties.getProperty(key);
 	}
-
 }

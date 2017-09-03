@@ -12,7 +12,16 @@ public class MetaDtMsgSendRecord {
 		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
 		jdbcTemplate = getJdbcTemplate.getIpmsdm();
 		gerRecordsql = getJdbcTemplate.getPrepareSql("MetaDtMsgSendRecordsql.gerRecordsql");
+		System.out.println("protocol--->>>"+protocol);
+		System.out.println("day--->>>"+day);
 		return jdbcTemplate.queryForList(gerRecordsql,"%"+protocol+"%",day);
+	}
+	
+	public String getMsg(String id){
+		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
+		jdbcTemplate = getJdbcTemplate.getIpmsdm();
+		String gerMsgSql = getJdbcTemplate.getPrepareSql("MetaDtMsgSendRecordsql.gerMsgsql");
+		return jdbcTemplate.queryForObject(gerMsgSql,String.class,id);
 	}
 	
 	public static void main(String[] args){

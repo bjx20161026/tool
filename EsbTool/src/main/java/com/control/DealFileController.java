@@ -59,4 +59,14 @@ public class DealFileController {
 		response.header("Content-Disposition", "attachment; filename=\"" + dfileName + "\"");
 		return response.build();
 	}
+	@GET
+	@Path("/downloadbyid")
+	public Response DownloadFileByID(@Context HttpServletRequest request) throws Exception{
+		String id = request.getParameter("ID");
+		FileDownLoad fileDownLoad = new FileDownLoad();
+		ResponseBuilder response = Response.ok(fileDownLoad.DownLoadById(id).toByteArray());
+		String dfileName = fileDownLoad.getFileName();
+		response.header("Content-Disposition", "attachment; filename=\"" + dfileName + "\"");
+		return response.build();
+	}
 }
