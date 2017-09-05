@@ -12,6 +12,16 @@ public class ParseMsgXml {
 	Logger logger = Logger.getLogger(ParseMsgXml.class);
 	
 	public String charset;
+	
+	public String myFileName;
+
+	public String getMyFileName() {
+		return myFileName;
+	}
+
+	public void setMyFileName(String myFileName) {
+		this.myFileName = myFileName;
+	}
 
 	public String getCharset() {
 		return charset;
@@ -46,6 +56,7 @@ public class ParseMsgXml {
 		String userName = UserName.getTextTrim();
 		String password = Password.getTextTrim();
 		String fileName = FileName.getTextTrim();
+		setMyFileName(fileName);
 		String connectionA;
 		if(CharSet!=null){
 		setCharset(CharSet.getTextTrim());
@@ -74,7 +85,6 @@ public class ParseMsgXml {
 	public String GetFtpInfoForSend(String xml) throws DocumentException{
 		String ftpUrl = "";
 		Document dom = null;
-		logger.info("xml--->>"+xml);
 		dom = DocumentHelper.parseText(xml);
 		Element root=dom.getRootElement();
 		Element ftpInfo;
@@ -96,6 +106,7 @@ public class ParseMsgXml {
 		String userName = UserName.getTextTrim();
 		String password = Password.getTextTrim();
 		String fileName = FileName.getTextTrim();
+		setMyFileName(fileName);
 		String connectionA;
 		if(CharSet!=null){
 		setCharset(CharSet.getTextTrim());

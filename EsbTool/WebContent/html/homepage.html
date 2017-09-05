@@ -4,10 +4,54 @@
 	<meta charset="utf-8"> 
 	<title>HomePage</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<style>
+/* Custom Styles */
+    ul.nav-tabs{
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+ /*        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc; */
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/highcharts.js"></script>
-	<script language="Javascript" type="text/javascript" src="../js/edit_area/edit_area_full.js"></script>
+	<script>
+$(document).ready(function(){
+    $("#myNav").affix({
+        offset: { 
+            top: 125 
+      }
+    });
+});
+</script>
 </head>
 <body>
 <script type="text/javascript">
@@ -37,8 +81,18 @@ else{
 			<a class="navbar-brand" href="#">工具</a>
 		</div>
 		<div class="collapse navbar-collapse bs-js-navbar-scrollspy">
-			<ul class="nav navbar-nav">
-				<li><a href="#esbshare">ESB共享</a></li>
+			<ul class="nav navbar-nav">				
+				<li class="dropdown">
+					<a href="#" id="navbarDrop2" class="dropdown-toggle" 
+					   data-toggle="dropdown">ESB共享
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" role="menu" 
+						aria-labelledby="navbarDrop1">
+						<li><a href="esbShareCount.html" target="_blank">ESB共享文件数</a></li>
+						<li><a href="esbsendmsg.html" target="_blank" tabindex="-1">ESB共享消息</a></li>		
+					</ul>
+				</li>
 				<li><a href="#svn">FTP采集</a></li>
 				<li><a href="#svn">部省上传</a></li>
                 <li><a href="http://10.221.247.7:1202/master/server" target="_blank">服务监控</a></li>
@@ -51,100 +105,33 @@ else{
 						aria-labelledby="navbarDrop1">
 						<li><a href="#openbigfile" tabindex="-1">打开大文件</a></li>
 						<li><a href="remoteFile.html" target="_blank" tabindex="-1">打开远程文件</a></li>
-						<li><a href="#downloadfile" tabindex="-1">下载文件</a></li>
-<!-- 						<li class="divider"></li> -->
+						<li><a href="download.html" target="_blank">下载文件</a></li>
 						<li><a href="#spring" tabindex="-1">入库文件校验</a></li>
-						<li><a href="#messagecount" tabindex="-1">ESB消息统计</a></li>				
+						<li><a href="esbcollectcount.html" target="_blank">ESB消息统计</a></li>				
 					</ul>
 				</li>
 			</ul>
 		</div>
 	</div> 
 </nav>
-<div data-spy="scroll" data-target="#navbar-example" data-offset="0" 
-	 style="height:500px;overflow:auto; position: relative;">
-	 <h3 id="esbshare">ESB共享</h3>
-	<p>ESB共享将文件通过esb的方式分发给客户</br>
-	  <h4><a href="#">esb共享配置</a></h4> 
-	    	 <h5><a href="esbShareCount.html" target="_blank">ESB共享文件数</a></h5> 
-	</p>
-	<hr>
-	 <h3 id="esbcollect">ESB采集</h3>
-	 <h4 id="openbigfile">打开大文件</h4>
-	 	<label for="inputfile">打开本地大文件</label>
-		<table>
-			<tr>
-			    <th>文件路径</th>
-				<th>：</th>
-				<td><input id="inputfile"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>起始行数</th>
-				<th>：</th>
-				<td><input id="startline" value="0"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>结束行数</th>
-				<th>：</th>
-				<td><input id="endline" value="10"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>编码格式</th>
-				<th>：</th>
-				<td><input id="charset" value="utf-8"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-			</tr>
-         </table><br>
-		<button onclick="openlocal()">确认打开</button>
-	 </p><br>
-	 <p id="openlocal">
-	 <script type="text/javascript">
-	   function openlocal(){
-		   var path = document.getElementById("inputfile").value;
-		   path = escape(path); 
-		   var startline = document.getElementById("startline").value;
-		   var endline = document.getElementById("endline").value;
-		   var charset = document.getElementById("charset").value;
-	       $.ajax({ 
-	               async:false,
-	               type:"get", 
-	               contentType:"application/json",   
-	               url:"http://10.221.18.29:8080/EsbTool/rest/dealFile/local?startLine="+startline+"&endLine="+endline+"&charset="+charset+"&path="+path, 
-	               success:function(result){ 
-	                   if(result!=null){
-	                      document.getElementById("openlocal").innerHTML=result;
-	                       return result;          
-	                   } 
-	               } 
-	         }); 
-	   } 
-	   </script>
-	 </p><br>
-	      <p>
-	 <h4 id="downloadfile">下载文件</h4>
-	 <p><table>
-			<tr>
-				<th>规约或文件名</th>
-				<th>：</th>
-				<td><input id="downloadprotocol"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>消息时间</th>
-				<th>：</th>
-				<td><input id="downloadday" value="1"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th><button onclick="download()">下载</button></th>
-			</tr>
-		</table>
-	 </p>
-	 <script type="text/javascript">
-	   function download(){ 
-		   var downloadprotocol = document.getElementById("downloadprotocol").value;
-	       var downloadday = document.getElementById("downloadday").value;
-	       var url = "http://10.221.18.29:8080/EsbTool/rest/dealFile/download?method=DownLoad&protocol="+downloadprotocol+"&day="+downloadday;
-	       window.location.href=url;
-	   } 
-	   </script>
-	 </p><br>
-	 <h4 id="messagecount">ESB消息统计</h4>
-	 <h5><a href="esbcollectcount.html" target="_blank">一周接收ESB消息数</a></h5> 
-	 <hr>
+<div data-spy="scroll" data-target="#myScrollspy">
+    <div class="row">
+        <div class="col-xs-2" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+                <li class="active"><a href="#section-1">公告</a></li>
+                <li><a href="#section-2">添加ESB共享消息</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+            <h3 id="section-1">公告</h3>
+          这个程序用来方便esb采集共享中的一些操作，前端的代码我是边看边学边做的，难免有许多的问题，若使用中发现有bug可以联系我，QQ：1596311683
+            <hr>
+            <h3 id="section-2">添加ESB共享消息</h3>  
+           添加了esb共享消息的操作，在esb共享的下来菜单里，你可以找到它，在esb共享消息里，你可以通过规约名或是文件名来模糊查询esb消息，      消息的时间单位是天，默认是0.1天，也就是2个多小时，你可以
+           调大这个数值以获得更多时间点消息，但这样将花费你更多的时间。在查询的结果的表格中你可以点击选中一行数据，再点击下载按钮，就可以下载消息对应的文件了。
+            <hr>
+        </div>
+    </div>
 </div>
 
 </body>
