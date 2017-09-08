@@ -88,11 +88,11 @@ public class RemoteBigFile {
 
 	public static void main(String[] args) throws Exception {
 		RemoteBigFile remoteBigFile = new RemoteBigFile();
-		remoteBigFile.setStartLine(100000);
-		remoteBigFile.setEndLine(100010);
+		remoteBigFile.setStartLine(0);
+		remoteBigFile.setEndLine(100);
 		remoteBigFile.setCharset("gbk");
 		// System.out.println(remoteBigFile.ReadRemoteBigFile("ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170808000000.csv.gz"));
 		System.out.println(remoteBigFile.ReadRemoteBigFile(
-				"ftp://LWT_PUT:W1n3m5s#@10.221.232.135:21//LWT_APP/DATA.PM.LTE_CSFB_VOICESIMPLE_DAY.LWT_APP/LTE_CSFB_VOICESIMPLE_DAY_20170814.csv"));
+				"ftp://inas:1Na512#$@10.221.18.29:21//home/BassFtpUser/informlist/temp_usr_m2m_20170904.csv"));
 	}
 }

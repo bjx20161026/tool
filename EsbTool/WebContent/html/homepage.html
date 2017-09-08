@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>HomePage</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" id="css">
+	<link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.css">
 	<style>
 /* Custom Styles */
     ul.nav-tabs{
@@ -51,6 +52,10 @@ $(document).ready(function(){
       }
     });
 });
+function changeStyle4(theme) {
+	   var obj = document.getElementById("css");
+	   obj.setAttribute("href","../css/theme/"+theme+"/bootstrap.min.css");
+	 }
 </script>
 </head>
 <body>
@@ -110,6 +115,20 @@ else{
 						<li><a href="esbcollectcount.html" target="_blank">ESB消息统计</a></li>				
 					</ul>
 				</li>
+					<li class="dropdown">
+					<a href="#" id="navbarDrop3" class="dropdown-toggle" 
+					   data-toggle="dropdown">更改主题
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" role="menu" 
+						aria-labelledby="navbarDrop3">
+						<li><a onclick="changeStyle4('cosmo')" tabindex="-1">cosmo</a></li>
+						<li><a onclick="changeStyle4('cyborg')" tabindex="-1">cyborg</a></li>
+						<li><a onclick="changeStyle4('darkly')">darkly</a></li>
+						<li><a onclick="changeStyle4('cerulean')" tabindex="-1">cerulean</a></li>
+						<li><a onclick="changeStyle4('solar')">solar</a></li>				
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div> 
@@ -119,17 +138,21 @@ else{
         <div class="col-xs-2" id="myScrollspy">
             <ul class="nav nav-tabs nav-stacked" id="myNav">
                 <li class="active"><a href="#section-1">公告</a></li>
-                <li><a href="#section-2">添加ESB共享消息</a></li>
+                <li><a href="#section-2">ESB共享消息</a></li>
+                <li><a href="#section-3">主题设置</a></li>
             </ul>
         </div>
         <div class="col-xs-10">
-            <h3 id="section-1">公告</h3>
-          这个程序用来方便esb采集共享中的一些操作，前端的代码我是边看边学边做的，难免有许多的问题，若使用中发现有bug可以联系我，QQ：1596311683
+            <h3 id="section-1">公告<i class="fa fa-bullhorn" style="font-size:36px"></i></h3>
+          这个程序用来方便esb采集共享中的一些操作，前端的代码我是边看边学边做的，难免有许多的问题，若使用中发现有bug<i class="fa fa-bug" style="font-size:24px"></i>，可以联系我，QQ：1596311683
+     <br>更多功能敬请期待！      
             <hr>
-            <h3 id="section-2">添加ESB共享消息</h3>  
-           添加了esb共享消息的操作，在esb共享的下来菜单里，你可以找到它，在esb共享消息里，你可以通过规约名或是文件名来模糊查询esb消息，      消息的时间单位是天，默认是0.1天，也就是2个多小时，你可以
+            <h3 id="section-2">ESB共享消息<i class="fa fa-gears" style="font-size:24px"></i></h3>  
+           添加了esb共享消息的操作，在esb共享的下拉菜单里，你可以找到它，在esb共享消息里，你可以通过规约名或是文件名来模糊查询esb消息，      消息的时间单位是天，默认是0.1天，也就是2个多小时，你可以
            调大这个数值以获得更多时间点消息，但这样将花费你更多的时间。在查询的结果的表格中你可以点击选中一行数据，再点击下载按钮，就可以下载消息对应的文件了。
             <hr>
+            <h3 id="section-3">主题设置<i class="fa fa-gears" style="font-size:24px"></i></h3> 
+            新增了主题设置功能，你可以在更改主界面的主题，现提供5种主题，部分主题加载可能需要花费你1-2秒的时间，请耐心等待。
         </div>
     </div>
 </div>
