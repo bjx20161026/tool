@@ -9,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import com.dao.MetaDtMsgSendRecord;
 import com.service.esbSendMsg.SendMsgRecord;
 @Path("/EsbSend")
 public class EsbSendController {

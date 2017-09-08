@@ -1,13 +1,9 @@
 package com.service.download;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-
 import com.dao.MetaDtMsgRecord;
 import com.dao.MetaDtMsgSendRecord;
 
-import util.common.FileTools;
-import util.common.MyDate;
 import util.ftp.FileOperate;
 import util.ftp.FtpFileObject;
 

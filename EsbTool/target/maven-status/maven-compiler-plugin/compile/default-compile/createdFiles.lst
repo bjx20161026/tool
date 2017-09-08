@@ -2,7 +2,10 @@ com\dao\GetJdbcTemplate.class
 com\control\EsbSendController.class
 util\timedTask\TimdTask.class
 util\ftp\FileOperate.class
+util\timedTask\test\TimdTask.class
 util\common\DateTools.class
+com\service\temp.class
+com\service\esbSendMsg\SendMsgRecord.class
 com\service\bigFile\BigFile.class
 com\service\loadDataCheck\LoadDataCheck$1.class
 com\dao\MetaDtMsgSendRecord.class
@@ -15,6 +18,7 @@ com\service\loadDataCheck\LoadDataCheck.class
 util\timedTask\Shedual.class
 util\common\StringTool.class
 util\common\FileTools.class
+com\dao\temp.class
 com\service\messageCount\CountShare.class
 com\dao\MetaPiTableDetail.class
 com\control\DealFileController.class
@@ -26,6 +30,7 @@ util\common\MyDate.class
 com\dao\MetaDtTaskRecord.class
 com\service\download\FileDownLoad.class
 util\ftp\FtpFileObject.class
+util\timedTask\test\Shedual.class
 com\service\login\LoginInfo.class
 com\control\CallMethodController.class
 util\common\RegularTool.class
