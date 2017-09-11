@@ -17,6 +17,15 @@ public class GetJdbcTemplate {
 		return new JdbcTemplate(dataSource);
 	}
 	
+	public JdbcTemplate getWlanIpnet(){
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@10.221.18.39:1521:ipnet");
+		dataSource.setUsername("ipnet");
+		dataSource.setPassword("SHipnet!23$");
+		return new JdbcTemplate(dataSource);
+	}
+	
 	public String getPrepareSql(String key){
 		Properties properties = FileTools.getProperties("PrepareSql.properties");
 		return properties.getProperty(key);
