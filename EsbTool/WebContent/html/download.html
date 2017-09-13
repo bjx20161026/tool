@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>DownLoad</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/highcharts.js"></script>
+</head>
+<body>
+	 <p><table>
+			<tr>
+				<th>规约或文件名</th>
+				<th>：</th>
+				<td><input id="downloadprotocol"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th>消息时间</th>
+				<th>：</th>
+				<td><input id="downloadday" value="1"></td>
+				<th>&nbsp;&nbsp;&nbsp;</th>
+				<th><button onclick="download()">下载</button></th>
+			</tr>
+		</table>
+	 </p>
+	 <script type="text/javascript">
+	   function download(){ 
+		   var downloadprotocol = document.getElementById("downloadprotocol").value;
+	       var downloadday = document.getElementById("downloadday").value;
+	       var url = "http://10.221.18.29:8080/EsbTool/rest/dealFile/download?method=DownLoad&protocol="+downloadprotocol+"&day="+downloadday;
+	       window.location.href=url;
+	   } 
+	   </script>
+	 </p>
+</div>
+
+</body>
+</html>
