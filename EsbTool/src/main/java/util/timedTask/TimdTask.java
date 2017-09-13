@@ -25,7 +25,7 @@ public class TimdTask extends Thread{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println(many);
+	System.out.println(many);	
 		 try {
 			Method method = Class.forName(many).getDeclaredMethod(callmethod);
 			method.invoke(Class.forName(many).newInstance());
