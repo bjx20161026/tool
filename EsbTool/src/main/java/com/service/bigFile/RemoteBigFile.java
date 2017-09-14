@@ -91,6 +91,6 @@ public class RemoteBigFile {
 		remoteBigFile.setCharset("gbk");
 		// System.out.println(remoteBigFile.ReadRemoteBigFile("ftp://PAS_PUT:W1n3m5s#@10.221.246.87:21/PAS_APP/DATA.PM.DW_FT_SE_DN1_50_D.PAS_APP/DW_FT_SE_DN1_50_D_20170808000000.csv.gz"));
 		System.out.println(remoteBigFile.ReadRemoteBigFile(
-				"ftp://inas:1Na512#$@10.221.18.29:21//home/BassFtpUser/informlist/temp_usr_m2m_20170904.csv"));
+				"ftp://inas:1Na512#$@10.221.18.29:21//home/BassFtpUser/jikeOrder/JK_NRTM_TBOrder_SH_20170914_P01_END.csv"));
 	}
 }

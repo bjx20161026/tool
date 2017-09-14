@@ -7,33 +7,39 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import com.dao.thirtynine.DmCoBaCfgClt;
 import com.service.model.CreateObject;
 
 import util.common.FileTools;
+import util.common.RegularTool;
 
 public class DealTaskTable {
 	
-	public List<Map<String,Object>> getAll(){
+	List<Map<String,Object>> list;
+	
+	public void getAll(){
 		DmCoBaCfgClt dmCoBaCfgClt = new DmCoBaCfgClt();
-		return dmCoBaCfgClt.GetAll();
+		list =  dmCoBaCfgClt.GetAll();
+	}
+	
+	public List<Map<String,Object>> getAll(String str){
+		return list;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List<String> getAllTableName(){
-		List<Map<String,Object>> list = getAll();
+		List<String> tableNames = new ArrayList<String>();
 		for(Map map:list){
 			String config = (String) map.get("CONFIG"); 
 			CreateObject co = JSON.parseObject(config, CreateObject.class);
-//			System.out.println(co.getUrl());
-//			System.out.println(co.getQuerySql());
-			System.out.println((String) map.get("ID"));
+			tableNames.add(RegularTool.MatcherValue(co.getQuerySql(), ".*? from (.*?) where .*"));
 		}
-		return null;
+		return tableNames;
 	}
 	
+	//数据网管转性能任务配置生成
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Map<String,String>> transToAnotherFtp(){
-		List<Map<String,Object>> list = getAll();
 		List<Map<String,String>> nlist = new ArrayList<Map<String,String>>();
 		Map nMap;
 		String id;
@@ -63,11 +69,13 @@ public class DealTaskTable {
 	
 	public static void main(String[] args){
 		DealTaskTable dealTaskTable = new DealTaskTable();
-		dealTaskTable.getAllTableName();
-//		List<Map<String,String>> list = dealTaskTable.transToAnotherFtp();
+		dealTaskTable.getAll();
+		List<String> list = dealTaskTable.getAllTableName();
+		for(String tableName:list){
+		System.out.println(tableName);
+		}
 //		DmCoBaCfgClt dmCoBaCfgClt = new DmCoBaCfgClt();
 //		int i = dmCoBaCfgClt.InsertNew(list);
 //		System.out.println("共插入 "+i+" 条");
 	}
-	
 }

@@ -43,12 +43,13 @@ public class RegularTool {
 	}
 	
 	public static void main(String[] args){
-		String str;
-		String format;
-		Map<Integer,String> map = RegularTool.MatcherValues("(to_date(substr(?,1,17),'yy-mm-dd hh24:mi:ss') - to_date('1970-01-01','yyyy-mm-dd'))*24*60*60",".*?,(\\d+),(\\d+)\\),'(.*?)'\\) -.*?");
-		System.out.println("map.get(1)--->>>"+map.get(1));
-		System.out.println("map.get(2)--->>>"+map.get(2));
-		System.out.println("map.get(3)--->>>"+map.get(3));
+		String str = "name=CHARGENAME,alias=chargeName";
+		String format = ".*?alias=(.*)";
+		System.out.println("匹配到的字符串是--->>>"+RegularTool.MatcherValue(str, format));
+//		Map<Integer,String> map = RegularTool.MatcherValues("(to_date(substr(?,1,17),'yy-mm-dd hh24:mi:ss') - to_date('1970-01-01','yyyy-mm-dd'))*24*60*60",".*?,(\\d+),(\\d+)\\),'(.*?)'\\) -.*?");
+//		System.out.println("map.get(1)--->>>"+map.get(1));
+//		System.out.println("map.get(2)--->>>"+map.get(2));
+//		System.out.println("map.get(3)--->>>"+map.get(3));
 //		String str = RegularTool.MatcherValue("12343daf",".*?([0-9]+).*?");
 //		System.out.println(str);
 	}

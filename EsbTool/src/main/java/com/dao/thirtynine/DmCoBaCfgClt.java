@@ -26,4 +26,11 @@ public class DmCoBaCfgClt {
 		}
 		return i;
 	}
+	
+	public List<Map<String,Object>> GetAllIpnet(){
+		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
+		jdbcTemplate = getJdbcTemplate.getWlanIpnet();
+		String sql = getJdbcTemplate.getPrepareSql("WlanIpnetNew");
+		return jdbcTemplate.queryForList(sql);
+	}
 }
