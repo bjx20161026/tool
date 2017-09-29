@@ -1,6 +1,11 @@
-package com.dao;
+package com.dao.esbCollect;
+/*
+ * esb消息接收记录表
+ */
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.dao.GetJdbcTemplate;
 
 public class MetaDtMsgRecord {
 	JdbcTemplate jdbcTemplate;

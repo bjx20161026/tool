@@ -1,8 +1,9 @@
 package com.service.download;
 
 import java.io.ByteArrayOutputStream;
-import com.dao.MetaDtMsgRecord;
-import com.dao.MetaDtMsgSendRecord;
+
+import com.dao.esbCollect.MetaDtMsgRecord;
+import com.dao.inasCollect.MetaDtMsgSendRecord;
 
 import util.ftp.FileOperate;
 import util.ftp.FtpFileObject;

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"> 
-	<title>EsbSendMsg</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
+<meta charset="utf-8">
+<title>inasCollect</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/jquery.dataTables.min.css">
 <script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery.dataTables.min.js"></script>	
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
 </head>
-
 <body>
-<script type="text/javascript">
+	<script type="text/javascript">
 var data;
 var table;
 function openA(){
@@ -23,9 +22,11 @@ function openA(){
 	    data: data,
 	    columns: [
 	    	{ data: 'ID' },
-			{ data: 'CALL_RESULT' },
-			{ data: 'SEND_TIME_STAMP' },
-			{ data: 'MSG_CONTENT' },
+			{ data: 'TABLENAME' },
+			{ data: 'FILEPATTEN' },
+			{ data: 'charset' },
+			{ data: 'seperator' },
+			
     ]
 	});
 	 $('#example tbody').on( 'click', 'tr', function () {
@@ -40,8 +41,8 @@ function openA(){
 	 
 	    $('#button').click( function () {
 		var mydata = table.row('.selected').data();
-	    var url = "http://localhost:8080/EsbTool/rest/?ID="+mydata.ID;
-	    window.location.href=url;
+	    var url = "InasRecord.html?protocol="+mydata.ID;
+        window.open(url);
 	    } );
 }
 function ShareXAxis(){ 
@@ -51,7 +52,7 @@ function ShareXAxis(){ 
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json", 
-	               url:"http://10.221.18.29:8080/EsbTool/rest/EsbSend/getMsg?protocol="+sendprotocol+"&day="+sendday,
+	               url:"http://localhost:8080/EsbTool/rest/InasCollectd/getPolicy?TYPE=0&ID="+sendprotocol+"&CONFIG="+sendday,
 	               success:function(result){ 
 	                   if(result!=null){
 	                       data=result;       
@@ -60,34 +61,37 @@ function ShareXAxis(){ 
 	         }); 
 	   } 
 </script>
-<br>
-	 <p><table>
-			<tr>
-				<th>规约或文件名</th>
-				<th>：</th>
-				<td><input id="sendprotocol"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>消息时间</th>
-				<th>：</th>
-				<td><input id="sendday" value="0.1"></td>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th><button onclick="openA()">查询</button></th>
-				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th><button id="button">下载</button></th>
-			</tr>
-		</table>
-	 </p>
-	 <br>
+	<br>
+	<p>
+	<table>
+		<tr>
+			<th>策略ID</th>
+			<th>：</th>
+			<td><input id="sendprotocol" value=""></td>
+			<th>&nbsp;&nbsp;&nbsp;</th>
+			<th>策略内容</th>
+			<th>：</th>
+			<td><input id="sendday" value=""></td>
+			<th>&nbsp;&nbsp;&nbsp;</th>
+			<th><button onclick="openA()">查询</button></th>
+			<th>&nbsp;&nbsp;&nbsp;</th>
+			<th><button id="button">日志查询</button></th>
+		</tr>
+	</table>
+	</p>
+	<br>
 
-<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-<thead>
-            <tr>
-                <th>ID</th>
-                <th>ESB回执</th>
-                <th>发送时间</th>
-              <th>文件名</th>
-           </tr>
-        </thead>
-</table>
+	<table id="example" class="table table-striped table-bordered"
+		cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>入库表名</th>
+				<th>文件样式</th>
+				<th>编码格式</th>
+				<th>分隔符</th>
+			</tr>
+		</thead>
+	</table>
 </body>
 </html>

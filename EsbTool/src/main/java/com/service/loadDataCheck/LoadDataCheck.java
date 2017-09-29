@@ -8,8 +8,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import com.dao.MetaDtTaskRecord;
-import com.dao.MetaPiTableDetail;
+import com.dao.esbCollect.MetaDtTaskRecord;
+import com.dao.esbCollect.MetaPiTableDetail;
 
 import util.common.RegularTool;
 

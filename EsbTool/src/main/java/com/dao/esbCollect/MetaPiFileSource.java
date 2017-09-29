@@ -1,8 +1,12 @@
-package com.dao;
-
+package com.dao.esbCollect;
+/*esb采集匹配说明表
+ * 
+ */
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.dao.GetJdbcTemplate;
 
 public class MetaPiFileSource {
 	JdbcTemplate jdbcTemplate;

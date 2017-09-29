@@ -1,9 +1,14 @@
-package com.dao;
+package com.dao.esbCollect;
+/*
+ * esb采集文件入库记录表
+ */
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.dao.GetJdbcTemplate;
 
 public class MetaDtTaskRecord {
 	JdbcTemplate jdbcTemplate;

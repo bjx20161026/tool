@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.dao.MetaDtMsgSendRecord;
+import com.dao.inasCollect.MetaDtMsgSendRecord;
 import com.service.download.ParseMsgXml;
 
 public class SendMsgRecord {

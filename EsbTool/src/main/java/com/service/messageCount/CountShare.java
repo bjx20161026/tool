@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.dao.DmCoBaTaskRecord;
+import com.dao.inasCollect.DmCoBaTaskRecord;
 import com.service.cache.SqlResultCache;
 
 public class CountShare {

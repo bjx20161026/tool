@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.GZIPInputStream;
 
-import com.dao.MetaDtMsgRecord;
+import com.dao.esbCollect.MetaDtMsgRecord;
 import com.service.download.ParseMsgXml;
 
 import util.common.PostfixTool;

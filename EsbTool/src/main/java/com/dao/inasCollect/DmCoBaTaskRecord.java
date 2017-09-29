@@ -1,9 +1,14 @@
-package com.dao;
+package com.dao.inasCollect;
+/*性能采集共享记录表
+ * 
+ */
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.dao.GetJdbcTemplate;
 
 public class DmCoBaTaskRecord {
 	JdbcTemplate jdbcTemplate;

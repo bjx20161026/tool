@@ -19,5 +19,4 @@ public class Initliza implements ServletContextListener {
 		Shedual shedual = new Shedual();
 		shedual.init();
 	}
-
 }

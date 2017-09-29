@@ -17,7 +17,6 @@ else{
 	alert("请先登录");
 	window.location.href="../index.html";
 }
-
 }
 </script>
       <p>
@@ -60,7 +59,7 @@ else{
 	               url:"http://10.221.18.29:8080/EsbTool/rest/dealFile/remote?startLine="+startline+"&endLine="+endline+"&protocol="+protocol+"&day="+day, 
 	               success:function(result){ 
 	                   if(result!=null){
-		                  alert("处理完成！")
+		                  alert("处理完成！");
 	                    //  document.getElementById("openremoteout").value=result;
 		                  editAreaLoader.setValue("openremoteout", result);
 	                   } 

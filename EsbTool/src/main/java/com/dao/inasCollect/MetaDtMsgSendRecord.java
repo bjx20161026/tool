@@ -1,9 +1,14 @@
-package com.dao;
+package com.dao.inasCollect;
+/*esb消息发送记录表
+ * 
+ */
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.dao.GetJdbcTemplate;
 
 public class MetaDtMsgSendRecord {
 	JdbcTemplate jdbcTemplate;

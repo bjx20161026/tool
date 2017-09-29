@@ -6,8 +6,9 @@ import java.util.Map;
 
 import org.jboss.resteasy.logging.Logger;
 
-import com.dao.DmCoBaTaskRecord;
-import com.dao.MetaDtTaskRecord;
+import com.dao.esbCollect.MetaDtTaskRecord;
+import com.dao.inasCollect.DmCoBaCfgClt;
+import com.dao.inasCollect.DmCoBaTaskRecord;
 
 public class SqlResultCache {
 	Logger logger = Logger.getLogger(SqlResultCache.class);
@@ -19,5 +20,8 @@ public class SqlResultCache {
 		DmCoBaTaskRecord dmCoBaTaskRecord = new DmCoBaTaskRecord();
 		List<Map<String, Object>> countShare = dmCoBaTaskRecord.GetCountDay();
 		SqlResultCache.Count.put("countShare", countShare);
+		DmCoBaCfgClt inasPolicyTable = new DmCoBaCfgClt();
+		List<Map<String,Object>> inasPolicy =  inasPolicyTable.getPolicy();
+		SqlResultCache.Count.put("inasPolicy", inasPolicy);
 	}
 }
