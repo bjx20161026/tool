@@ -1,0 +1,16 @@
+{
+  "ecmaVersion": 6,
+  "parserOptions": {
+    "syntaxErrors": 0,
+    "reservedWordsInPropNames": 0,
+    "returnOutsideOfFunction": 0,
+    "importExportOutsideOfTopBlock": 0,
+    "hashBang": 0,
+    "pebbleSyntax": 0
+  },
+  "plugins": {
+    "doc_comment": {
+      "strong": true
+    }
+  }
+}

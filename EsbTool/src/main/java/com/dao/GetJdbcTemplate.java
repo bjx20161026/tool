@@ -17,6 +17,15 @@ public class GetJdbcTemplate {
 		return new JdbcTemplate(dataSource);
 	}
 	
+	public JdbcTemplate getIpmsp(){
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dataSource.setUrl("jdbc:oracle:thin:@192.168.1.198:1521/ipnet");
+		dataSource.setUsername("ipmsp");
+		dataSource.setPassword("SHipmsp!23$");
+		return new JdbcTemplate(dataSource);
+	}
+	
 	public JdbcTemplate getWlanIpnet(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");

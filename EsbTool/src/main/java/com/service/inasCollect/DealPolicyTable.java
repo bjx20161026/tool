@@ -31,6 +31,19 @@ public class DealPolicyTable {
 		logger.info("list.size--->>>"+list.size());
 	}
 	
+	public String GetFtpUrl(String protocol){
+		FastCollectConfig fcc;
+		List<Map<String,Object>> listCollect = new ArrayList<Map<String,Object>>();
+		for(Map map:list){
+			String id = (String) map.get("ID");
+			if(!id.contains(protocol)) continue;
+			String config = (String)map.get("CONFIG");		
+			fcc = JSON.parseObject(config, FastCollectConfig.class);
+			return fcc.getUrl();
+		}
+		return "";		
+	}
+	
 	public void RefreshList(){
 		inasPolicyTable = new DmCoBaCfgClt();
 		list = inasPolicyTable.getPolicy();

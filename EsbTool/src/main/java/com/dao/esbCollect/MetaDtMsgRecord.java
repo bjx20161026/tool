@@ -3,9 +3,14 @@ package com.dao.esbCollect;
  * esb消息接收记录表
  */
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.dao.GetJdbcTemplate;
+
+import util.common.DateTools;
 
 public class MetaDtMsgRecord {
 	JdbcTemplate jdbcTemplate;
@@ -20,6 +25,31 @@ public class MetaDtMsgRecord {
 		return jdbcTemplate.queryForObject(getMsgsql,String.class,"%"+protocol+"%","%"+protocol+"%",day);
 	}
 	
+	public List<Map<String,Object>> GetMsgList(String protocol,String startTime,String endTime){
+		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
+		jdbcTemplate = getJdbcTemplate.getIpmsdm();
+		if(startTime==null||startTime.equals("")){
+			startTime = DateTools.getDayString(-1);
+		}
+		if(endTime==null||endTime.equals("")){
+			endTime = DateTools.getDayString(0);
+		}
+		getMsgsql = getJdbcTemplate.getPrepareSql("EsbCollectList");
+		return jdbcTemplate.queryForList(getMsgsql,"%"+protocol+"%",endTime,startTime);
+	}
+	
+	public List<Map<String,Object>> Temp(String startTime,String endTime){
+		GetJdbcTemplate getJdbcTemplate = new GetJdbcTemplate();
+		jdbcTemplate = getJdbcTemplate.getIpmsdm();
+		if(startTime==null||startTime.equals("")){
+			startTime = DateTools.getDayString(-1);
+		}
+		if(endTime==null||endTime.equals("")){
+			endTime = DateTools.getDayString(0);
+		}
+		getMsgsql = getJdbcTemplate.getPrepareSql("temp");
+		return jdbcTemplate.queryForList(getMsgsql,endTime,startTime);
+	}
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}

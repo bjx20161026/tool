@@ -132,7 +132,7 @@ public class LoadDataCheck {
 		LoadDataCheck loadDataCheck = new LoadDataCheck();
 		loadDataCheck.setNumber(true);
 		String str = loadDataCheck
-				.Check("DATA.PM.Video_Result.ACT_APP");
+				.Check("DATA.RM.ALL_TIR_ONU.IRMS_APP");
 		System.out.println("处理结果是--->>>" + str);
 	}
 }

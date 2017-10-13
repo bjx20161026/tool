@@ -14,8 +14,7 @@ public class CreateObject {
 	
 	private String querySql;
 	private String createrClass;
-	//headNames
-	//
+	
 	private Map<String,Object> extInfo=new LinkedHashMap<String,Object>();
 
 	public String getId() {

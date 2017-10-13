@@ -8,6 +8,10 @@
     <script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" href="../js/flatpickr-master/dist/flatpickr.min.css">
+    <script src="../js/flatpickr-master/src/flatpickr.js"></script>
+	<script src="../js/flatpickr-master/dist/l10n/zh.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/flatpickr-master/dist/themes/light.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -17,7 +21,6 @@ if(n>0)//存在参数
 {   
 	protocol=self.location.href.substr(n+10);    
 }   
-alert(protocol);
 
 var data;
 var table;
@@ -49,18 +52,20 @@ function openA(){
 	 
 	    $('#button').click( function () {
 		var mydata = table.row('.selected').data();
-	    var url = "InasRecord.html?ID="+mydata.PROTOCOL;
+	    var url = "http://10.221.18.29:8080/EsbTool/rest/InasCollectd/GetCollectFile?PROTOCOL="+mydata.PROTOCOL+"&FILENAME="+mydata.FILENAME;
 	    window.location.href=url;
 	    } );
 }
+
 function ShareXAxis(){ 
 	var sendprotocol = document.getElementById("sendprotocol").value;
-    var sendday = document.getElementById("sendday").value;
+    var MyBeginTime = document.getElementById("MyBeginTime").value;
+    var MyEndTime = document.getElementById("MyEndTime").value;
 	       $.ajax({ 
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json", 
-	               url:"http://localhost:8080/EsbTool/rest/InasCollectd/getPolicy?TYPE=0&ID="+sendprotocol+"&CONFIG="+sendday,
+	               url:"http://10.221.18.29:8080/EsbTool/rest/InasCollectd/getRecord?PROTOCOL="+sendprotocol+"&STARTTIME="+MyBeginTime+"&ENDTIME="+MyEndTime,
 	               success:function(result){ 
 	                   if(result!=null){
 	                       data=result;       
@@ -80,7 +85,7 @@ function ShareXAxis(){ 
 				<th>：</th>
 				<td><input id="MyBeginTime" value=""></td>
 				<th>&nbsp;&nbsp;&nbsp;</th>
-				<th>接收时间</th>
+				<th>结束时间</th>
 				<th>：</th>
 				<td><input id="MyEndTime" value=""></td>
 				<th>&nbsp;&nbsp;&nbsp;</th>
@@ -105,6 +110,19 @@ function ShareXAxis(){ 
         </thead>
 </table>
 <script type="text/javascript">
+flatpickr("#MyBeginTime", {
+"locale": "zh",
+enableTime:true,
+enableSeconds:true
+});
+
+flatpickr("#MyEndTime", {
+"locale": "zh",
+enableTime:true,
+enableSeconds:true
+});
+
+
 if(protocol!=null){
 	document.getElementById("sendprotocol").value = protocol;
 }

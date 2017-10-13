@@ -1,5 +1,10 @@
 package com.control;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -68,5 +73,43 @@ public class DealFileController {
 		String dfileName = fileDownLoad.getFileName();
 		response.header("Content-Disposition", "attachment; filename=\"" + dfileName + "\"");
 		return response.build();
+	} 
+	
+	@GET
+	@Path("/downloadftpmodle")
+	public Response DownloadFtpModle() throws Exception{
+		File file = new File("../upload/ftpTemplate.xlsx");
+		InputStream is = new FileInputStream(file);
+		ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		int c = is.read();
+		while (c != -1) {
+			bo.write(c);
+			c = is.read();
+		}
+		is.close();
+		ResponseBuilder response = Response.ok(bo.toByteArray());
+		String dfileName = "FtpDownLoadTemplet.xlsx";
+		response.header("Content-Disposition", "attachment; filename=\"" + dfileName + "\"");
+		return response.build();
 	}
+	
+	@GET
+	@Path("/downloadftprecord")
+	public Response DownloadFtpRecord() throws Exception{
+		File file = new File("../record/FTPconfigRecord.xlsx");
+		InputStream is = new FileInputStream(file);
+		ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		int c = is.read();
+		while (c != -1) {
+			bo.write(c);
+			c = is.read();
+		}
+		is.close();
+		ResponseBuilder response = Response.ok(bo.toByteArray());
+		String dfileName = "FTPconfigRecord.xlsx";
+		response.header("Content-Disposition", "attachment; filename=\"" + dfileName + "\"");
+		return response.build();
+	}
+	
+	
 }

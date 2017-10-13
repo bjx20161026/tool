@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 
 import com.dao.esbCollect.MetaDtMsgRecord;
 import com.dao.inasCollect.MetaDtMsgSendRecord;
+import com.service.cache.SqlResultCache;
+import com.service.inasCollect.DealPolicyTable;
 
 import util.ftp.FileOperate;
 import util.ftp.FtpFileObject;
@@ -44,6 +46,17 @@ public class FileDownLoad {
 		ParseMsgXml parseMsgXml = new ParseMsgXml();
 		String ftpUrl=parseMsgXml.GetFtpInfoForSend(msg);
 		return FtpFile(ftpUrl);
+	}
+	
+	public ByteArrayOutputStream DownLoadCollectFile(String protocol,String fileName) throws Exception{
+		DealPolicyTable dealPolicyTable = new DealPolicyTable();
+		String url = dealPolicyTable.GetFtpUrl(protocol);
+		url = url.substring(0,url.lastIndexOf("/")+1);
+		return FtpFile(url+fileName);
+	}
+	
+	public ByteArrayOutputStream DownLoadEsbCollectFile(String id) throws Exception{
+		return FtpFile(SqlResultCache.EsbCollectFtpUrl.get(id));
 	}
 	
 	public static void main(String[] args) throws Exception{

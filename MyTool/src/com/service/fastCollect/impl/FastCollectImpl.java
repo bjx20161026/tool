@@ -129,6 +129,4 @@ public class FastCollectImpl implements FastCollect {
 		configTable.setCONFIG(config);
 		return configTableDao.insert(configTable);
 	}
-	
-
 }

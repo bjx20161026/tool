@@ -1,7 +1,7 @@
 hr {color:sienna;}
 p {margin-left:20px;text-align:center;}
 h1 {text-align:center;}
-#tb {margin-left:560px;text-align:center;}
+#tb {text-align:-webkit-center;}
 a {text-align:center;margin:0 auto}
 #lowa {
 	position:absolute;

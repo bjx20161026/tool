@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<title>FTP采集配置模板导入</title>
+<script type="text/javascript">
+	$(function(){
+	$('input[type=file]').change(function() {
+		if(validateUploadFile(this) == 1){
+			uploadFile(this);
+		}else{
+			console.log("不能上传!");
+		}
+	});
+});
+
+function uploadFile(obj){
+	var formData = new FormData();	    
+	
+	formData.append('imageNum', obj.files.length);
+	
+	for(var i = 0; i != obj.files.length; i++){
+		formData.append('image' + i, obj.files[i]);
+	}
+	var dbid = document.getElementById("dbid").value;
+    formData.append('dbid',dbid);
+
+	var isinsert = document.getElementById("isinsert").value;
+	formData.append('isinsert',isinsert);
+    
+       
+    $.ajax({
+        url: 'http://10.221.18.29:8080/EsbTool/rest/file/upload/multiple',//Server script to process data
+        type: 'POST',
+        
+        //Ajax events
+        beforeSend: function(){},
+        success: function(data){
+        	console.log(data);
+       		if(data == -1){
+       			alert("上传失败");
+       		}
+       		
+       		var paths = data.split(",");
+       		
+       		for(var i = 0; i != paths.length ; i++){
+				$('#images').append('<li class="list-group-item">'+ paths[i] +'</li>');	       			
+       		}
+       		
+        },
+        error: function(){
+   			alert("上传失败");
+        },
+        // Form data
+        data: formData,
+        //Options to tell jQuery not to process data or worry about content-type.
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+}
+
+function validateUploadFile(obj){
+	if (obj == null || $(obj).val() === "") { 
+		alert("请上传配置文件!");					
+		return 0; 
+	}
+	
+	if(obj.files.length > 20){
+		alert("一次只能上传至多19个文件!")
+		return 0;
+	}
+	
+	var regex = new RegExp("(.*?)\.(xlsx|xls)$"),
+	    errors = [];
+	
+	console.log("上传限制文件大小:10MB。");
+
+	//检查多张图片的大小与类型
+	for(var i = 0;i != obj.files.length; i++){
+		var file = obj.files[i],
+		    val = $(obj).val().trim().toLowerCase();
+		var name = file.name;
+	    var size = file.size / 1024 / 1024;
+	    var type = file.type;
+	    
+	    console.log("正在检测: 文件名：" + name + " ,文件类型: " + type + " ,文件大小为: " + size + " MB。");
+		
+		if (size > 10) {
+		  errors.push("文件： " + name + "." + type +" 超出上传限制文件大小(" + size + "MB)" );
+		}
+		if (!(regex.test(val))) {
+		  errors.push("文件： " + name + "." + type + "不是EXCLE文件。(能上传的EXCLE文件格式为.xls和.xlsx)");
+		}
+	}
+	if (errors.length > 0) {  
+	  $(obj).val('');
+	  alert(errors.join('\r\n'));
+	  return 0;
+	}
+	return 1;
+}
+</script>
+</head>
+<body>
+	<h2>FTP采集配置模板导入</h2>
+	<hr>
+	<p style="font-family: arial; font-size: 30px;">
+		模板下载：<a
+			href="http://10.221.18.29:8080/EsbTool/rest/dealFile/downloadftpmodle"
+			target="_blank"><img src="../images/ftpmodle.png" width="142"
+			height="144" alt="FTP采集配置模板" /></a>
+	</p>
+	<hr>
+	<p style="font-family: arial; font-size: 30px;">
+	 配置文件上传：<form enctype="multipart/form-data" role="form"><div class="form-group">
+		<label for="name">是否插入数据库</label>
+		<input type="text" class="form-control" id="isinsert" value = "true"
+			   placeholder="请输入 true,false">
+	</div>
+	<!-- <div style="float:left;"> -->
+	<div class="form-group">
+		<label for="name">数据库</label>
+		<input type="text" class="form-control" id="dbid" 
+			   placeholder="请输入数据库名称">
+	</div>
+	<div class="form-group">
+    <label for="inputfile">文件输入</label>
+	    <input type="file"
+	        multiple="multiple"
+	    	id="inputfile"/>
+    <p class="help-block">文件数量不能超过19个,单个文件大小不能大于10MB</p>
+	    <div class="bad"></div>
+	</div>
+ </form>
+	<hr>
+	<div id="images">
+ <h1>已经成功处理的文件</h1>
+</div>
+<div>
+<hr>
+	<p style="font-family: arial; font-size: 30px;">
+		配置记录下载：<a
+			href="http://10.221.18.29:8080/EsbTool/rest/dealFile/downloadftprecord"
+			target="_blank"><img src="../images/ftpmodle.png" width="142"
+			height="144" alt="FTP采集配置记录" /></a>
+	</p>
+</div>
+
+</body>
+</html>
