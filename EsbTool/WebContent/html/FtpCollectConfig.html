@@ -33,7 +33,7 @@ function uploadFile(obj){
     
        
     $.ajax({
-        url: 'http://10.221.18.29:8080/EsbTool/rest/file/upload/multiple',//Server script to process data
+        url: 'http://localhost:8080/EsbTool/rest/file/upload/multiple',//Server script to process data
         type: 'POST',
         
         //Ajax events
@@ -110,7 +110,7 @@ function validateUploadFile(obj){
 	<hr>
 	<p style="font-family: arial; font-size: 30px;">
 		模板下载：<a
-			href="http://10.221.18.29:8080/EsbTool/rest/dealFile/downloadftpmodle"
+			href="http://localhost:8080/EsbTool/rest/dealFile/downloadftpmodle"
 			target="_blank"><img src="../images/ftpmodle.png" width="142"
 			height="144" alt="FTP采集配置模板" /></a>
 	</p>
@@ -144,7 +144,7 @@ function validateUploadFile(obj){
 <hr>
 	<p style="font-family: arial; font-size: 30px;">
 		配置记录下载：<a
-			href="http://10.221.18.29:8080/EsbTool/rest/dealFile/downloadftprecord"
+			href="http://localhost:8080/EsbTool/rest/dealFile/downloadftprecord"
 			target="_blank"><img src="../images/ftpmodle.png" width="142"
 			height="144" alt="FTP采集配置记录" /></a>
 	</p>

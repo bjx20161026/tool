@@ -2,7 +2,7 @@ function loginCheck(){
 var name = document.getElementById("name").value;
 var password = document.getElementById("password").value;
 var respon;
-var myurl = "http://10.221.18.29:8080/EsbTool/rest/login/getPassword?name="+name+"&password="+password;
+var myurl = "http://localhost:8080/EsbTool/rest/login/getPassword?name="+name+"&password="+password;
 //先声明一个异步请求对象
 var xmlHttpReg = null;
 if (window.ActiveXObject) {//如果是IE

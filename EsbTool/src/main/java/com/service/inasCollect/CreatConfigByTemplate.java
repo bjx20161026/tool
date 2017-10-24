@@ -104,7 +104,7 @@ public class CreatConfigByTemplate {
 				values+="?,";
 			}
 			paras += map.get("对应关系")+",";
-			if(map.get("文件表头")!=null){
+			if(map.get("文件表头")!=null&&!map.get("文件表头").equals("")){
 			head += map.get("文件表头")+",";
 			}
 		}
@@ -120,6 +120,9 @@ public class CreatConfigByTemplate {
 		Map<String, String> extInfo = new HashMap<String, String>(); 
 		if(head.length() != 0){
 			extInfo.put("headsName", head.substring(0, head.length()-1));
+		}
+		if(firstMap.get("分隔符")!=null&&firstMap.get("分隔符").equals("tab键")){
+			firstMap.put("分隔符", "\t");
 		}
 		extInfo.put("seperator",firstMap.get("分隔符")==null?",":firstMap.get("分隔符"));
 		extInfo.put("charset",firstMap.get("文件编码")==null?"gbk":firstMap.get("文件编码"));

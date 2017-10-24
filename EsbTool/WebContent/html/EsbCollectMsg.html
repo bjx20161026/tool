@@ -49,7 +49,7 @@ function openA(){
 	 
 	    $('#button').click( function () {
 		var mydata = table.row('.selected').data();
-	    var url = "http://10.221.18.29:8080/EsbTool/rest/EsbCollect/GetEsbCollectFile?ID="+mydata.FILENAME+"&FILENAME="+mydata.FILENAME;
+	    var url = "http://localhost:8080/EsbTool/rest/EsbCollect/GetEsbCollectFile?ID="+mydata.FILENAME+"&FILENAME="+mydata.FILENAME;
 	    window.location.href=url;
 	    } );
 }
@@ -62,7 +62,7 @@ function ShareXAxis(){ 
 	               async:false,
 	               type:"get", 
 	               contentType:"application/json", 
-	               url:"http://10.221.18.29:8080/EsbTool/rest/EsbCollect/getMsgList?PROTOCOL="+sendprotocol+"&STARTTIME="+MyBeginTime+"&ENDTIME="+MyEndTime,
+	               url:"http://localhost:8080/EsbTool/rest/EsbCollect/getMsgList?PROTOCOL="+sendprotocol+"&STARTTIME="+MyBeginTime+"&ENDTIME="+MyEndTime,
 	               success:function(result){ 
 	                   if(result!=null){
 	                       data=result;       
